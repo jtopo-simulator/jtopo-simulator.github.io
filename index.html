@@ -2,238 +2,47 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>仪表面板</title>
-    <link rel="stylesheet" href=" css/panel.css"/>
+    <title>登录</title>
+    <link rel="stylesheet" href=" css/login.css"/>
     <link rel="stylesheet" href=" css/bootstrap.min.css"/>
-    <link rel="stylesheet" href=" css/animate.css"/>
-    <!--<script src=" js/echarts.js"></script>-->
+    <script src=" js/jquery-1.11.3.js"></script>
+
 </head>
 <body>
     <div id="container">
-        <!-- 左侧边栏-->
-        <div id="left-navigation">
-            <ul>
-                <li class="animated wobble">
-                    <img src="images/u470.png" alt=""/>
-                    <img src=" images/u468.png" alt=""/>
-                </li>
-                <a href="panel.html" style="transform:scale(1.15);">
-                    <li>
-
-                    <span class="glyphicon glyphicon-home" style="font-size: 20px;color: #0288D1;">
-                        <!--<img src=" images/2017-08-04_180433.png" alt=""/>-->
-                    </span>
-                        <p style="color: #0288D1" class="animated bounce">仪表面板</p>
-
-                    </li>
-                </a>
-                <a href="quick-avigation.html">
-                    <li>
-                    <span class="glyphicon glyphicon-flag" style="font-size: 22px">
-                        <!--<img src=" images/2017-08-04_180453.png" alt=""/>-->
-                    </span>
-                        <p>快速向导</p>
-                    </li>
-                </a>
-                <a href="topology-manage.html">
-                    <li >
-                    <span class="glyphicon glyphicon-calendar" style="font-size: 22px">
-                        <!--<img src=" images/2017-08-04_180506.png" alt=""/>-->
-                    </span>
-                        <p>拓扑管理</p>
-                    </li>
-                </a>
-                <a href="log-manage.html">
-                    <li >
-                    <span class="glyphicon glyphicon-list-alt" style="font-size: 22px">
-                        <!--<img src=" images/2017-08-04_180522.png" alt=""/>-->
-                    </span>
-                        <p>日志管理</p>
-                    </li>
-                </a>
-                <a href="system-manage.html">
-                    <li >
-                    <span class="glyphicon glyphicon-cog" style="font-size: 22px">
-                        <!--<img src=" images/2017-08-04_180543.png" alt=""/>-->
-                    </span>
-                        <p>系统管理</p>
-                    </li>
-                </a>
-                <a href="user-manage.html">
-                    <li >
-                    <span class="glyphicon glyphicon-user" style="font-size: 22px">
-                        <!--<img src=" images/2017-08-14_124435.png" alt=""/>-->
-                    </span>
-                        <p>用户管理</p>
-                    </li>
-                </a>
-                <a href="analysis.html">
-                    <li >
-                    <span class="glyphicon glyphicon-signal" style="font-size: 22px">
-                        <!--<img src=" images/2017-08-14_124453.png" alt=""/>-->
-                    </span>
-                        <p>统计分析</p>
-                    </li>
-                </a>
-                <a href="personal.html">
-                    <li >
-                    <span class="glyphicon glyphicon-envelope" style="font-size: 22px">
-                        <!--<img src=" images/2017-08-14_124507.png" alt=""/>-->
-                    </span>
-                        <p>个人中心</p>
-                    </li>
-                </a>
-            </ul>
-        </div>
-        <!-- top导航-->
-        <div id="top-navigation">
-            <ul id="top-navigation-left">
-                <li>中国电信云计算实验室</li>
-                <li class="animated rubberBand">网络模拟平台</li>
-            </ul>
-            <ul id="top-navigation-right">
-                <li class="animated tada"><img src=" images/u74.png" alt=""/></li>
-                <li class="animated wobble">Welcome, <span id="user" class="user">Administrator</span></li>
-                <li>
+        <div id="left-container">
+            <div>
+                <img src=" images/u27.png" alt=""/>
+                <p>中国电信云计算实验室</p>
+                <span>网络模拟平台</span>
+            </div>
+            <form action="">
+                <div>
                     <span>
-                        <a href="login.html" >
-                            <img src=" images/exit.png" alt="" id="exit" title="退出系统"/>
-                        </a>
+                        <img src=" images/user.png" alt=""/>
                     </span>
-                </li>
-            </ul>
-        </div>
-        <!-- 资源利用统计-->
-        <div id="statistics">
-            <ul>
-                <!-- 环形数据图,以下为图片站位-->
-                <!--<img src=" images/2017-08-08_150328.png" alt=""/>-->
-                <li>系统资源利用统计</li>
-                <li class="deanzxone deanactions bounceInUp animated" style="visibility: visible; animation-delay: 0.1s; animation-name: bounceInUp;">
-                    <!--<img src=" images/仪表面板/u39.png" alt=""/>-->
-                    <!--<img src=" images/仪表面板/u41.png" alt=""/>-->
-                    <canvas id="one" width="120px" height="120px"></canvas>
-                    <p class="canvas-word">CPU使用率</p>
-                </li>
-                <li class="deanzxone deanactions bounceInUp animated" style="visibility: visible; animation-delay: 0.2s; animation-name: bounceInUp;">
-                    <!--<img src=" images/仪表面板/u39.png" alt=""/>-->
-                    <!--<img src=" images/仪表面板/u54.png" alt=""/>-->
-                    <canvas id="two" width="120px" height="120px"></canvas>
-                    <p class="canvas-word">内存使用率</p>
-                </li>
-                <li class="deanzxone deanactions bounceInUp animated" style="visibility: visible; animation-delay: 0.3s; animation-name: bounceInUp;">
-                    <!--<img src=" images/仪表面板/u39.png" alt=""/>-->
-                    <!--<img src=" images/仪表面板/u63.png" alt=""/>-->
-                    <canvas id="three" width="120px" height="120px"></canvas>
-                    <p class="canvas-word">硬盘使用率</p>
-                </li>
-            </ul>
-        </div>
-        <!-- 主面板-->
-        <div id="section" style="padding-top:200px;">
+                    <input type="text" placeholder="请输入用户名" id="txt" name="uname" value="admin"/><br/>
+                </div>
+                <div>
+                    <span>
+                        <img src=" images/password.png" alt=""/>
+                    </span>
+                    <input type="password" placeholder="请输入密码" id="pwd" name="upwd" value="admin"/>
+                </div>
+                <input type="button" value="登录" id="login">
 
-            <font size="7"><b>欢迎使用中国电信云计算实验室</b></font><br><font color="#0288D1" size="6"><b>网络模拟平台</b></font>
+            </form>
+        </div>
+        <div id="right-container">
 
         </div>
+        <div class="mask"></div>
     </div>
+    <script type="text/javascript" src=" js/login.js"></script>
     <script>
-
-
-
-
-        function drawCircle(_options){
-            var options = _options || {};    //获取或定义options对象;
-            options.angle = options.angle || 1;    //定义默认角度1为360度(角度范围 0-1);
-            options.color = options.color || '#fff';    //定义默认颜色（包括字体和边框颜色）;
-            options.lineWidth = options.lineWidth || 10;    //定义默认圆描边的宽度;
-            options.lineCap = options.lineCap || 'square';    //定义描边的样式，默认为直角边，round 为圆角
-
-            var oBoxOne = document.getElementById(options.id);
-            var sCenter = oBoxOne.width / 2;    //获取canvas元素的中心点;
-            var ctx = oBoxOne.getContext('2d');
-            var nBegin = Math.PI / 2;    //定义起始角度;
-            var nEnd = Math.PI * 2;    //定义结束角度;
-            var grd = ctx.createLinearGradient(0, 0, oBoxOne.width, 0);    //grd定义为描边渐变样式;
-            grd.addColorStop(0, 'red');
-            grd.addColorStop(0.5, 'yellow');
-            grd.addColorStop(1, 'green');
-
-            ctx.textAlign = 'center';    //定义字体居中;
-            ctx.font = 'normal normal bold 20px Arial';    //定义字体加粗大小字体样式;
-            ctx.fillStyle = options.color == 'grd' ? grd : options.color;    //判断文字填充样式为颜色，还是渐变色;
-            ctx.fillText((options.angle * 100) + '%', sCenter, sCenter);    //设置填充文字;
-            /*ctx.strokeStyle = grd;    //设置描边样式为渐变色;
-             ctx.strokeText((options.angle * 100) + '%', sCenter, sCenter);    //设置描边文字(即镂空文字);*/
-            ctx.lineCap = options.lineCap;
-            ctx.strokeStyle = options.color == 'grd' ? grd : options.color;
-            ctx.lineWidth = options.lineWidth;
-
-            ctx.beginPath();    //设置起始路径，这段绘制360度背景;
-            ctx.strokeStyle = '#D8D8D8';
-            ctx.arc(sCenter, sCenter, (sCenter - options.lineWidth), -nBegin, nEnd, false);
-            ctx.stroke();
-
-            var imd = ctx.getImageData(0, 0, 240, 240);
-            function draw(current) {    //该函数实现角度绘制;
-                ctx.putImageData(imd, 0, 0);
-                ctx.beginPath();
-                ctx.strokeStyle = options.color == 'grd' ? grd : options.color;
-                ctx.arc(sCenter, sCenter, (sCenter - options.lineWidth), -nBegin, (nEnd * current) - nBegin, false);
-                ctx.stroke();
-            }
-
-            var t = 0;
-            var timer = null;
-            function loadCanvas(angle) {    //该函数循环绘制指定角度，实现加载动画;
-                timer = setInterval(function(){
-                    if (t > angle) {
-                        draw(options.angle);
-                        clearInterval(timer);
-                    }else{
-                        draw(t);
-                        t += 0.02;
-                    }
-                }, 20);
-            }
-            loadCanvas(options.angle);    //载入百度比角度  0-1 范围;
-            timer = null;
-
-        }
-        var a={
-            id: 'one',
-//            color: '#F33D4A',
-            angle: 0.1,
-            lineWidth: 9
-        };
-        var b={
-            id: 'two',
-//            color: '#FA6634',
-            angle: 0.3,
-            lineWidth: 9
-        };
-        var c={
-
-            id: 'three',
-//            color: '#0288D1',
-            angle: 0.90,
-            lineWidth: 9
-
-        };
-        color(a);
-        color(b);
-        color(c);
-        function color(n){
-            if(n.angle<=0.5&& n.angle>=0){
-                n.color="#99CC00"
-            }else if(n.angle<=0.8&& n.angle>0.5){
-                n.color="#FA6634"
-            }else if(n.angle>0.8){
-                n.color="#F33D4A"
-            }
-        }
-        drawCircle(a);
-        drawCircle(b);
-        drawCircle(c);
+      login.onclick=function(){
+        window.location.href='panel.html'
+      }
     </script>
 </body>
 </html>
