@@ -4,7 +4,7 @@
 
 
 
-<p align="center"><img width="600px" src="https://github.com/jtopo-simulator/jtopo-simulator.github.io/images/z1.png" alt="demo"></p>
+<p align="center"><img width="600px" src="https://github.com/jtopo-simulator/jtopo-simulator.github.io/blob/master/images/z1.png" alt="demo"></p>
 <p align="center"><img width="600px" src="https://github.com/jtopo-simulator/jtopo-simulator.github.io/tree/master/images/z2.png" alt="demo"></p>
 <p align="center"><img width="600px" src="https://github.com/jtopo-simulator/jtopo-simulator.github.io/tree/master/images/z3.png" alt="demo"></p>
 <p align="center"><img width="600px" src="https://github.com/jtopo-simulator/jtopo-simulator.github.io/tree/master/images/z4.png" alt="demo"></p>
