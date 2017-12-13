@@ -1,0 +1,2426 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>查看拓扑</title>
+    <link rel="stylesheet" href="../css/check-topology.css"/>
+    <link rel="stylesheet" href="../css/tabStyle.css"/>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/animate.css"/>
+    <!--<link rel="stylesheet" href="../css/honeySwitch.css"/>-->
+    <script src="../js/jquery-1.11.3.js"></script>
+    <script src="../js/jtopo-min.js"></script>
+    <script src="../js/tabScript.js"></script>
+    <!--<script src="../js/honeySwitch.js"></script>-->
+    <style type="text/css">
+        /*html, body{*/
+        /*font:14px/1.8 Arial,Microsoft YaHei,黑体,宋体,sans-serif;*/
+        /*height:100%;*/
+        /*}*/
+        /*/!*菜单选项卡*!/*/
+        /**{*/
+        /*margin:0;*/
+        /*padding:0;*/
+        /*}*/
+        ul li{padding: 0}
+        #uploadmenu{
+            list-style: none;
+            position:absolute;
+            left:-108px;
+            top:29px;
+        }
+        #uploadmenu>li>a{
+            display:block;
+            text-decoration: none;
+            width: 100px;
+            height: 24px;
+            margin-left: 10px;
+            padding-top:4px;
+            line-height:24px;
+            text-align: center;
+            color: #fff;
+            border-top:1px solid #ABA8A8;
+        }
+        #uploadmenu>li>ul>li>a{
+            display:inline-block;
+            width:172px;
+            height:63px;
+            padding-left:9px;
+            padding-right:9px;
+            /*background: #D1D1D1;*/
+            border-radius: 5px;
+        }
+        #uploadmenu>li>ul>li>a>img{
+            width: 44px;
+            height: 48px;
+            transform: translate(-45px,0);
+        }
+        /*span{*/
+        /*display:inline-block;*/
+        /*height:30px;*/
+        /*line-height: 30px;*/
+        /*text-align: center;*/
+        /*width:70px;*/
+        /*padding-left: 5px;*/
+        /*padding-right:5px;*/
+        /*border-bottom: 1px #ADABAB solid;*/
+        /*}*/
+        /*hover-left*/
+        .lili li>a:hover{
+            /*background: #cccccc;*/
+            border-radius: 5px;
+            /*animation: flip .7s 1;*/
+            animation:bg1icon8_move .5s 1 ; animation-fill-mode: forwards;
+        }
+        /*.lili li:nth-child(1):hover{*/
+        /*background: #E9E7E7;*/
+        /*border-radius: 5px;*/
+        /*}*/
+        /*.lili li:nth-child(2):hover{*/
+        /*background: #E9E7E7;*/
+        /*border-radius: 5px;*/
+        /*}*/
+        /*/!*.lili li:nth-child(3):hover{*!/*/
+        /*/!*background: #E9E7E7;*!/*/
+        /*/!*border-radius: 5px;*!/*/
+        /*/!*}*!/*/
+        /*.lili li:nth-child(3):hover .lili li:nth-child(4){*/
+        /*display: block;*/
+        /*}*/
+        /*.lili li:nth-child(4){*/
+        /*display: none;*/
+        /*position: absolute;*/
+        /*left: 110px;*/
+        /*top: 100px;*/
+        /*}*/
+        /*.lili li:nth-child(5){*/
+        /*display: none;*/
+        /*position: absolute;*/
+        /*left: 110px;*/
+        /*top: 140px;*/
+        /*}*/
+        /*.lili li:nth-child(6):hover{*/
+        /*background: #E9E7E7;*/
+        /*border-radius: 5px;*/
+        /*}*/
+        /*.lili li:nth-child(7):hover{*/
+        /*background: #E9E7E7;*/
+        /*border-radius: 5px;*/
+        /*}*/
+        /*.lili li:nth-child(8):hover{*/
+        /*background: #E9E7E7;*/
+        /*border-radius: 5px;*/
+        /*}*/
+        /*.lili li:nth-child(9):hover{*/
+        /*background: #E9E7E7;*/
+        /*border-radius: 5px;*/
+        /*}*/
+        /*hover-left*/
+        .lili li:active{
+            background:#FFFFFF;
+            border-radius: 0px;
+        }
+        .nob{
+            border-bottom:none !important;
+        }
+        .lili li{
+            height:61px;
+            width:171px!important;
+            /*padding-left: 25px;*/
+            padding-top: 10px;
+        }
+        .lili{
+            border-radius:5px;
+            box-shadow: 0 0 5px #434343;
+        }
+        #uploadmenu .li1>a{
+            border: none;
+        }
+        /*.li1, .li2, .li3{*/
+        /*width: 110px;*/
+        /*height: 36px;*/
+        /*background: #666666;*/
+        /*position:relative;*/
+        /*cursor: pointer;*/
+        /*}*/
+        .li3{
+            border-radius:0 0 5px 5px;
+        }
+        .nav1, .nav2, .nav3{
+            list-style: none;
+            position:absolute;
+            left:535px;
+            top: 313px;
+            padding: 0;
+            /*display: none;*/
+            width: 172px;
+            height: 555px;
+        }
+        .li1:hover .nav1{
+            display:block;
+            background-color: #ffffff;
+            animation:bg1icon9_move .6s 1 ; animation-fill-mode: forwards;
+
+        }
+        .li2:hover .nav2{
+            display:block;
+            background-color: #C5C5C5;
+        }
+        .li3:hover .nav3{
+            display:block;
+            background-color:#C5C5C5;
+        }
+        .lili1 li{
+            height:30px;
+            width:100px!important;
+        }
+        .lili1 li:hover{
+            background: #E9E7E7;
+            border-radius: 5px;
+        }
+        .lili1 li:active{
+            background:#FFFFFF;
+            border-radius: 0px;
+        }
+
+        .lili1{
+            border-radius:5px;
+            box-shadow: 0 0 5px #434343;
+        }
+        .lili1 li span{
+            display:inline-block;
+            height:30px;
+            line-height: 30px;
+            text-align: center;
+            width:70px;
+            margin-left: 10px;
+            border-bottom: 1px #ADABAB solid;
+        }
+        .nav4, .nav5, .nav6{
+            list-style: none;
+            position:absolute;
+            left: 123px;
+            top: 0px;
+            display: none;
+            cursor:pointer;
+        }
+        #level:hover .nav4{
+            display:block;
+            background-color:#C5C5C5;
+        }
+        #text:hover .nav5{
+            display:block;
+            background-color:#C5C5C5;
+        }
+        #alarm:hover .nav6{
+            display:block;
+            background-color:#C5C5C5;
+        }
+        #contextmenu {
+            width:122px;
+            border: 1px solid #aaa;
+            border-radius:7px;
+            border-bottom: 0;
+            background: #eee;
+            position: absolute;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: none;
+            box-shadow: 0 0 5px #434343;
+        }
+        #contextmenu li{
+            width:122px;
+            position:relative;
+        }
+
+        #contextmenu li a {
+            height:30px;
+            line-height: 30px;
+            width:100px;
+            margin-left: 11px;
+            text-align: center;
+            display: block;
+            border-bottom: 1px solid #aaa;
+            cursor: pointer;
+            font-family: 'Noto Sans S Chinese';
+            font-weight: 400;
+            font-size: 14px;
+            font-style: normal;
+            color: #666666;
+
+        }
+
+        #contextmenu>li:hover {
+            background: #fff;
+            border-radius:7px;
+        }
+        #linkmenu {
+            width:122px;
+            border: 1px solid #aaa;
+            border-radius:7px;
+            border-bottom: 0;
+            background: #eee;
+            position: absolute;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: none;
+            box-shadow: 0 0 5px #434343;
+        }
+        #linkmenu li {
+            width:122px;
+        }
+        #linkmenu li a {
+            width:100px;
+            height:30px;
+            line-height: 30px;
+            display: block;
+            border-bottom: 1px solid #aaa;
+            cursor: pointer;
+            margin-left: 11px;
+            text-align: center;
+        }
+
+        #linkmenu li:hover {
+            background: #fff;
+            border-radius:7px;
+        }
+        /*button*/
+        .jtopo_toolbar{
+            height:30px;
+        }
+        input[type="button"]{
+            /*font-family: "Arial Normal", Arial;*/
+            font-weight: 400;
+            /*color: rgb(49, 62, 68);*/
+            line-height: 36px;
+            text-decoration: none;
+            display: inline-block;
+            width: 90px;
+            height: 36px;
+            background: inherit;
+            background-color: rgba(255, 255, 255, 1);
+            box-sizing: border-box;
+            border-width: 1px;
+            border-style: solid;
+            border-color: rgba(204, 204, 204, 1);
+            border-radius: 18px;
+            text-align: center;
+        }
+        input[type="button"]:hover{
+            background: #CECDCD;
+            border: solid 1px #CECDCD;
+        }
+
+        .component-library{
+            display: inline-block;
+            width: 200px;
+            transform: translate(2px,-33px);
+            font-family: 'Noto Sans S Chinese';
+            font-weight: 400;
+            font-size: 14px;
+            font-style: normal;
+            color: #666666;
+        }
+        .jtopo_toolbar{
+            transform: translate(200px,0);
+            font-family: 'Noto Sans S Chinese';
+            font-weight: 400;
+            font-size: 14px;
+            font-style: normal;
+            color: #666666;
+            position: absolute;
+            top: 353px;
+            left: 565px;
+        }
+        /*#modal-1{*/
+        /*position: absolute;*/
+        /*display: none;*/
+        /*width: 200px;*/
+        /*height: 200px;*/
+        /*background: pink;*/
+        /*}*/
+        /*遮罩1*/
+        .modal-all {
+            display: none;
+            width: 100%;
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: rgba(0,0,0, .5);
+            z-index: 999;
+
+        }
+        .modal-dialog {
+            width: 600px;
+            margin: 100px auto;
+
+        }
+        .modal-content {
+            background: #fff;
+            border: 1px solid #aaa;
+            border-radius: 3px;
+            box-shadow: 0 0 5px #aaa;
+            padding: 16px 12px;
+            transform: translate(0,20px);
+            height: 610px;
+        }
+        .modal-content h4 {
+            font-size: 1.5em;
+        }
+        .modal-content .alert {
+            margin: 15px 0;
+            border: 1px solid #e4393c;
+            background: #fee;
+            color: #e4393c;
+            font-weight: bold;
+            padding: 6px;
+            border-radius: 2px;
+        }
+        .modal-content input {
+            box-sizing: border-box; /*总宽=width+margin*/
+            width: 100%;
+            margin: 6px 0;
+            line-height: 2em;
+            border: 1px solid #aaa;
+            border-radius: 2px;
+            padding: 2px 6px;
+
+        }
+        .page {
+            width: 800px;
+            margin: 0 auto;
+            padding: 15px;
+            background: white;
+        }
+        h1, h2 {
+            margin: 0;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .common-row {
+            width: 100%;
+            height: 50px;
+            border-bottom: 1px solid lightgrey;
+        }
+        .cell-left, .cell-right {
+            width: 49%;
+            height: 100%;
+            float: left;
+            line-height: 50px;
+        }
+        .cell-right {
+            text-align: right;
+        }
+        .switch-on, .switch-off {
+            margin-top: 9px;
+        }
+        .showBox {
+            width: 100%;
+            border: 1px solid lightgrey;
+            border-radius: 6px;
+            font-size: 16px;
+            background: #CCFF99;
+        }
+        .paragraph {
+            white-space: pre-wrap;
+            margin: 15px 0;
+            word-break: break-all;
+            word-wrap: break-word;
+        }
+        textarea {
+            width: 80%;
+            border: none;
+            outline: none;
+            resize: none;
+            font-size: 16px;
+            height: auto;
+            overflow: visible;
+        }
+        .hidden {
+            display: none;
+        }
+        @media screen and (max-width: 800px) {
+            .page {
+                width: 100%;
+                box-sizing: border-box;
+            }
+        }
+
+    </style>
+    <script>
+        $(function(){
+
+            loadTab();
+            $('#modal-btn-1').click(
+                    function () {
+                        $("#modal1").hide();
+                    }
+            );
+            $('#modal-btn-2').click(
+                    function () {
+                        $("#modal2").hide();
+                    }
+            );
+            $('#modal-btn-3').click(
+                    function () {
+                        $("#modal3").hide();
+                    }
+            );
+            $('#modal-btn-4').click(
+                    function () {
+                        $("#modal4").hide();
+                    }
+            );
+            $('#modal-btn-5').click(
+                    function () {
+                        $("#modal5").hide();
+                    }
+            );
+            $('#modal-btn-6').click(
+                    function () {
+                        $("#modal6").hide();
+                    }
+            )
+        });
+
+    </script>
+</head>
+<body>
+<div class="modal-all" id="modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <p class="modal-title-p">服务器设置</p>
+            <ul class="tabs">
+                <li><a href="#" name=".tab1_1">基本配置</a></li>
+                <li><a href="#" name=".tab1_2">接口配置</a></li>
+                <li><a href="#" name=".tab1_3">服务设置</a></li>
+                <li><a href="#" name=".tab1_4">DNS服务设置</a></li>
+                <li><a href="#" name=".tab1_5">控制台</a></li>
+            </ul>
+            <div class="content">
+                <div class="tab1_1">
+                    <form action="" id="modal-form-1">
+                        <label for="server-allocation-1">元件名称</label>
+                        <input type="text" id="server-allocation-1"/>
+                    </form>
+                    <button id="modal-form-1-btn" class="modal-button">保存</button>
+                </div>
+                <div class="tab1_2">
+                    <form action="" id="modal-form-2">
+                        <label for="server-allocation-2">配置IP地址</label>
+                        <input type="text" id="server-allocation-2"/>
+                        <br/>
+                        <label for="server-allocation-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IP地址</label>
+                        <input type="text" id="server-allocation-3"/>
+                        <br/>
+                        <label for="server-allocation-4">&nbsp;&nbsp;&nbsp;&nbsp;子网掩码</label>
+                        <input type="text" id="server-allocation-4"/>
+                        <br/>
+                        <label for="server-allocation-5">&nbsp;&nbsp;&nbsp;&nbsp;网关地址</label>
+                        <input type="text" id="server-allocation-5"/>
+                        <br/>
+                        <label for="server-allocation-6">&nbsp;&nbsp;&nbsp;&nbsp;首选DNS</label>
+                        <input type="text" id="server-allocation-6"/>
+                        <br/>
+                        <label for="server-allocation-7">&nbsp;&nbsp;&nbsp;&nbsp;次选DNS</label>
+                        <input type="text" id="server-allocation-7"/>
+                    </form>
+                    <button id="modal-form-2-btn" class="modal-button">保存</button>
+                </div>
+                <div class="tab1_3">
+                    <!--<form action="" id="modal-form-3">-->
+                        <!--<label for="server-allocation-1">元件名称</label>-->
+                        <!--<input type="text" id="server-allocation-8"/>-->
+                    <!--</form>-->
+
+                </div>
+                <div class="tab1_4">
+                    <form action="" id="modal-form-4">
+                    <label for="server-allocation-8">DNS域名</label>
+                    <input type="text" id="server-allocation-8" value="testdomain.com"/>
+                    </form>
+                    <button id="modal-form-3-btn" class="modal-button">新建</button>
+                    <button id="modal-form-4-btn" class="modal-button">编辑</button>
+                    <button id="modal-form-5-btn" class="modal-button">删除</button>
+                    <table id="modal-form-1-table" class="modal-table">
+                        <tr>
+                            <th  style="width: 50px;" class="modal-table-th">选择</th>
+                            <th style="width: 100px;" class="modal-table-th">IP</th>
+                            <th style="width: 100px;" class="modal-table-th">A记录</th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>192.168.1.0</td>
+                            <td>a.testdomain.com</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>192.168.1.0</td>
+                            <td>a.testdomain.com</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>192.168.1.0</td>
+                            <td>a.testdomain.com</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="tab1_5">
+                    TAB2_5
+                </div>
+
+            </div>
+            <div style="border-top: 1px solid #cccccc"></div>
+            <button class="modal-btn" id="modal-btn-1">关闭</button>
+        </div>
+    </div>
+</div>
+<div class="modal-all" id="modal2">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <p class="modal-title-p">交换机设置</p>
+            <ul class="tabs">
+                <li><a href="#" name=".tab2_1">基本配置</a></li>
+                <li><a href="#" name=".tab2_2">VLAN配置</a></li>
+                <li><a href="#" name=".tab2_3">接口配置</a></li>
+                <li><a href="#" name=".tab2_4">镜像设置</a></li>
+                <li><a href="#" name=".tab2_5">静态路由</a></li>
+                <li><a href="#" name=".tab2_6">控制台</a></li>
+            </ul>
+            <div class="content">
+                <div class="tab2_1">
+                    <form action="" id="modal-switchboard-form-1">
+                        <label for="switchboard-allocation-1">元件名称</label>
+                        <input type="text" id="switchboard-allocation-1"/>
+                    </form>
+                    <button id="modal-switchboard-form-1-btn" class="modal-button">保存</button>
+                </div>
+                <div class="tab2_2">
+                    <button id="modal-switchboard-form-2-btn" class="modal-button">新建</button>
+                    <button id="modal-switchboard-form-3-btn" class="modal-button">编辑</button>
+                    <button id="modal-switchboard-form-4-btn" class="modal-button">删除</button>
+                    <table id="modal-switchboard-form-1-table" class="modal-table">
+                        <tr>
+                            <th  style="width: 50px;" class="modal-table-th">选择</th>
+                            <th style="width: 100px;" class="modal-table-th">VLAN ID</th>
+                            <th style="width: 100px;" class="modal-table-th">描述</th>
+                            <th style="width: 100px;" class="modal-table-th">成员端口</th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>1</td>
+                            <td>管理VLAN</td>
+                            <td>GE1/015</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>123</td>
+                            <td>VLAN 0123</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>129</td>
+                            <td>ServerLAN</td>
+                            <td>015</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>129</td>
+                            <td>ServerLAN</td>
+                            <td>015</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>5</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>5</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>5</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>5</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="tab2_3">
+                    <button id="modal-switchboard-form-5-btn" class="modal-button">新建</button>
+                    <button id="modal-switchboard-form-6-btn" class="modal-button">编辑</button>
+                    <button id="modal-switchboard-form-7-btn" class="modal-button">删除</button>
+                    <table id="modal-switchboard-form-2-table" class="modal-table">
+                        <tr>
+                            <th  style="width: 50px;" class="modal-table-th">选择</th>
+                            <th style="width: 100px;" class="modal-table-th">ID</th>
+                            <th style="width: 100px;" class="modal-table-th">状态</th>
+                            <th style="width: 100px;" class="modal-table-th">接口速率</th>
+                            <th style="width: 100px;" class="modal-table-th">双工</th>
+                            <th style="width: 100px;" class="modal-table-th">连接类型</th>
+                            <th style="width: 100px;" class="modal-table-th">WLAN IDs</th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>1</td>
+                            <td>on</td>
+                            <td>auto 10 100 100</td>
+                            <td>全双工</td>
+                            <td>access</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>2</td>
+                            <td>off</td>
+                            <td>10</td>
+                            <td>全双工</td>
+                            <td>trunk</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>2</td>
+                            <td>on</td>
+                            <td>10</td>
+                            <td>全双工</td>
+                            <td>none</td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>1</td>
+                            <td>on</td>
+                            <td>auto 10 100 100</td>
+                            <td>全双工</td>
+                            <td>access</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>1</td>
+                            <td>on</td>
+                            <td>auto 10 100 100</td>
+                            <td>全双工</td>
+                            <td>access</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>1</td>
+                            <td>on</td>
+                            <td>auto 10 100 100</td>
+                            <td>全双工</td>
+                            <td>access</td>
+                            <td>10</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="tab2_4">
+                    <button id="modal-switchboard-form-8-btn" class="modal-button">新建</button>
+                    <button id="modal-switchboard-form-9-btn" class="modal-button">编辑</button>
+                    <button id="modal-switchboard-form-10-btn" class="modal-button">删除</button>
+                    <table id="modal-switchboard-form-3-table" class="modal-table">
+                        <tr>
+                            <th  style="width: 50px;" class="modal-table-th">选择</th>
+                            <th style="width: 100px;" class="modal-table-th">镜像组ID</th>
+                            <th style="width: 100px;" class="modal-table-th">状态</th>
+                            <th style="width: 100px;" class="modal-table-th">目的端口</th>
+                            <th style="width: 100px;" class="modal-table-th">源端口</th>
+                            <th style="width: 100px;" class="modal-table-th">流量方向</th>
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>1</td>
+                            <td>Active</td>
+                            <td>GE1/015</td>
+                            <td>GE1/0/11</td>
+                            <td>both</td>
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>1</td>
+                            <td>Active</td>
+                            <td>GE1/015</td>
+                            <td>GE1/0/11</td>
+                            <td>both</td>
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>1</td>
+                            <td>Active</td>
+                            <td>GE1/015</td>
+                            <td>GE1/0/11</td>
+                            <td>both</td>
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>1</td>
+                            <td>Active</td>
+                            <td>GE1/015</td>
+                            <td>GE1/0/11</td>
+                            <td>both</td>
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>1</td>
+                            <td>Active</td>
+                            <td>GE1/015</td>
+                            <td>GE1/0/11</td>
+                            <td>both</td>
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>1</td>
+                            <td>Active</td>
+                            <td>GE1/015</td>
+                            <td>GE1/0/11</td>
+                            <td>both</td>
+
+                        </tr>
+
+                    </table>
+                </div>
+                <div class="tab2_5">
+                    <button id="modal-switchboard-form-11-btn" class="modal-button">新建</button>
+                    <button id="modal-switchboard-form-12-btn" class="modal-button">编辑</button>
+                    <button id="modal-switchboard-form-13-btn" class="modal-button">删除</button>
+                    <table id="modal-switchboard-form-4-table" class="modal-table">
+                        <tr>
+                            <th  style="width: 50px;" class="modal-table-th">选择</th>
+                            <th style="width: 100px;" class="modal-table-th">目标网段</th>
+                            <th style="width: 100px;" class="modal-table-th">掩码长度</th>
+                            <th style="width: 100px;" class="modal-table-th">下一跳</th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>192.168.1.0</td>
+                            <td>24</td>
+                            <td>10.10.10.1</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>192.168.1.0</td>
+                            <td>24</td>
+                            <td>10.10.10.1</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>192.168.1.0</td>
+                            <td>24</td>
+                            <td>10.10.10.1</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>192.168.1.0</td>
+                            <td>24</td>
+                            <td>10.10.10.1</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>192.168.1.0</td>
+                            <td>24</td>
+                            <td>10.10.10.1</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>192.168.1.0</td>
+                            <td>24</td>
+                            <td>10.10.10.1</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>192.168.1.0</td>
+                            <td>24</td>
+                            <td>10.10.10.1</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>192.168.1.0</td>
+                            <td>24</td>
+                            <td>10.10.10.1</td>
+                        </tr>
+
+                    </table>
+                </div>
+                <div class="tab2_6">
+                    2TAB2_6
+                </div>
+            </div>
+            <div style="border-top: 1px solid #ccc"></div>
+            <button class="modal-btn" id="modal-btn-2">关闭</button>
+        </div>
+    </div>
+</div>
+<div class="modal-all" id="modal3" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <p class="modal-title-p">路由器设置</p>
+            <ul class="tabs">
+                <li><a href="#" name=".tab3_1">基本配置</a></li>
+                <li><a href="#" name=".tab3_2">接口配置</a></li>
+                <li><a href="#" name=".tab3_3">静态路由</a></li>
+                <li><a href="#" name=".tab3_4">NAT</a></li>
+                <li><a href="#" name=".tab3_5">动态路由</a></li>
+                <li><a href="#" name=".tab3_6">端口映射</a></li>
+                <li><a href="#" name=".tab3_7">控制台</a></li>
+            </ul>
+            <div class="content">
+                <div class="tab3_1">
+                    <form action="" id="modal-router-form-1">
+                        <label for="router-allocation-1">元件名称</label>
+                        <input type="text" id="router-allocation-1"/>
+                    </form>
+                    <button id="modal-router-form-1-btn" class="modal-button">保存</button>
+                </div>
+                <div class="tab3_2">
+                    <button id="modal-router-form-2-btn" class="modal-button">新建</button>
+                    <button id="modal-router-form-3-btn" class="modal-button">编辑</button>
+                    <button id="modal-router-form-4-btn" class="modal-button">删除</button>
+                    <table id="modal-router-form-1-table" class="modal-table">
+                        <tr>
+                            <th  style="width: 50px;" class="modal-table-th">选择</th>
+                            <th style="width: 50px;" class="modal-table-th">ID</th>
+                            <th style="width: 50px;" class="modal-table-th">状态</th>
+                            <th style="width: 50px;" class="modal-table-th">速率</th>
+                            <th style="width: 80px;" class="modal-table-th">双工</th>
+                            <th style="width: 80px;" class="modal-table-th">连接类型</th>
+                            <th style="width: 100px;" class="modal-table-th">IP地址</th>
+                            <th style="width: 150px;" class="modal-table-th">子网掩码</th>
+                            <th style="width: 100px;" class="modal-table-th">网关</th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>1</td>
+                            <td>启用</td>
+                            <td>1000</td>
+                            <td>全双工</td>
+                            <td>none</td>
+                            <td>192.168.1.2</td>
+                            <td>255.255.255.252</td>
+                            <td>192.168.1.1</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>1</td>
+                            <td>启用</td>
+                            <td>1000</td>
+                            <td>全双工</td>
+                            <td>none</td>
+                            <td>192.168.1.2</td>
+                            <td>255.255.255.252</td>
+                            <td>192.168.1.1</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>1</td>
+                            <td>启用</td>
+                            <td>1000</td>
+                            <td>全双工</td>
+                            <td>none</td>
+                            <td>192.168.1.2</td>
+                            <td>255.255.255.252</td>
+                            <td>192.168.1.1</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>1</td>
+                            <td>启用</td>
+                            <td>1000</td>
+                            <td>全双工</td>
+                            <td>none</td>
+                            <td>192.168.1.2</td>
+                            <td>255.255.255.252</td>
+                            <td>192.168.1.1</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>1</td>
+                            <td>启用</td>
+                            <td>1000</td>
+                            <td>全双工</td>
+                            <td>none</td>
+                            <td>192.168.1.2</td>
+                            <td>255.255.255.252</td>
+                            <td>192.168.1.1</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>1</td>
+                            <td>启用</td>
+                            <td>1000</td>
+                            <td>全双工</td>
+                            <td>none</td>
+                            <td>192.168.1.2</td>
+                            <td>255.255.255.252</td>
+                            <td>192.168.1.1</td>
+                        </tr>
+
+                    </table>
+                </div>
+                <div class="tab3_3">
+                    <button id="modal-router-form-5-btn" class="modal-button">新建</button>
+                    <button id="modal-router-form-6-btn" class="modal-button">编辑</button>
+                    <button id="modal-router-form-7-btn" class="modal-button">删除</button>
+                    <table id="modal-router-form-2-table" class="modal-table">
+                        <tr>
+                            <th  style="width: 50px;" class="modal-table-th">选择</th>
+                            <th style="width: 300px;" class="modal-table-th">目标网段</th>
+                            <th style="width: 300px;" class="modal-table-th">掩码长度</th>
+                            <th style="width: 300px;" class="modal-table-th">下一跳</th>
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>192.168.1.0</td>
+                            <td>24</td>
+                            <td>10.10.10.1</td>
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>192.168.1.0</td>
+                            <td>24</td>
+                            <td>10.10.10.1</td>
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>192.168.1.0</td>
+                            <td>24</td>
+                            <td>10.10.10.1</td>
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>192.168.1.0</td>
+                            <td>24</td>
+                            <td>10.10.10.1</td>
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>192.168.1.0</td>
+                            <td>24</td>
+                            <td>10.10.10.1</td>
+
+                        </tr><tr>
+                        <td><input type="checkbox"/></td>
+                        <td>192.168.1.0</td>
+                        <td>24</td>
+                        <td>10.10.10.1</td>
+
+                    </tr>
+
+                    </table>
+                </div>
+                <div class="tab3_4">
+                    <button id="modal-router-form-8-btn" class="modal-button">新建</button>
+                    <button id="modal-router-form-9-btn" class="modal-button">编辑</button>
+                    <button id="modal-router-form-10-btn" class="modal-button">删除</button>
+                    <table id="modal-router-form-3-table" class="modal-table">
+                        <tr>
+                            <th  style="width: 50px;" class="modal-table-th">选择</th>
+                            <th style="width: 100px;" class="modal-table-th">名称</th>
+                            <th style="width: 100px;" class="modal-table-th">类型</th>
+                            <th style="width: 150px;" class="modal-table-th">公网地址</th>
+                            <th style="width: 150px;" class="modal-table-th">私网地址</th>
+
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>Guangdong</td>
+                            <td>静态映射</td>
+                            <td>192.168.100.102</td>
+                            <td>172.16.0.1-17</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>Guangdong</td>
+                            <td>静态映射</td>
+                            <td>192.168.100.102</td>
+                            <td>172.16.0.1-17</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>Guangdong</td>
+                            <td>静态映射</td>
+                            <td>192.168.100.102</td>
+                            <td>172.16.0.1-17</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>Guangdong</td>
+                            <td>静态映射</td>
+                            <td>192.168.100.102</td>
+                            <td>172.16.0.1-17</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>Guangdong</td>
+                            <td>静态映射</td>
+                            <td>192.168.100.102</td>
+                            <td>172.16.0.1-17</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>Guangdong</td>
+                            <td>静态映射</td>
+                            <td>192.168.100.102</td>
+                            <td>172.16.0.1-17</td>
+                        </tr>
+
+                    </table>
+                </div>
+                <div class="tab3_5">
+                    <div>
+                        <select name="" id="tab3_5_1">
+                            <option value="内网路由协议"></option>
+                            <option value="边界路由协议"></option>
+                        </select>
+                    </div>
+                    <div></div>
+                </div>
+                <div class="tab3_6">
+                    <button id="modal-router-form-11-btn" class="modal-button">新建</button>
+                    <button id="modal-router-form-12-btn" class="modal-button">编辑</button>
+                    <button id="modal-router-form-13-btn" class="modal-button">删除</button>
+                    <table id="modal-router-form-4-table" class="modal-table">
+                        <tr>
+                            <th  style="width: 50px;" class="modal-table-th">选择</th>
+                            <th style="width: 100px;" class="modal-table-th">映射名称</th>
+                            <th style="width: 150px;" class="modal-table-th">公网地址</th>
+                            <th style="width: 150px;" class="modal-table-th">私网地址</th>
+                            <th style="width: 50px;" class="modal-table-th">协议</th>
+                            <th style="width: 100px;" class="modal-table-th">公网端口</th>
+                            <th style="width: 100px;" class="modal-table-th">私网端口</th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>Map1</td>
+                            <td>220.106.150.110</td>
+                            <td>192.168.100.101</td>
+                            <td>tcp</td>
+                            <td>34</td>
+                            <td>65531</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>Map1</td>
+                            <td>220.106.150.110</td>
+                            <td>192.168.100.101</td>
+                            <td>tcp</td>
+                            <td>34</td>
+                            <td>65531</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>Map1</td>
+                            <td>220.106.150.110</td>
+                            <td>192.168.100.101</td>
+                            <td>tcp</td>
+                            <td>34</td>
+                            <td>65531</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>Map1</td>
+                            <td>220.106.150.110</td>
+                            <td>192.168.100.101</td>
+                            <td>tcp</td>
+                            <td>34</td>
+                            <td>65531</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>Map1</td>
+                            <td>220.106.150.110</td>
+                            <td>192.168.100.101</td>
+                            <td>tcp</td>
+                            <td>34</td>
+                            <td>65531</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="tab3_7">
+                    2TAB2_7
+                </div>
+            </div>
+            <div style="border-top: 1px solid #ccc"></div>
+            <button class="modal-btn" id="modal-btn-3">关闭</button>
+        </div>
+    </div>
+</div>
+<div class="modal-all" id="modal4">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <p class="modal-title-p">防火墙设置</p>
+            <ul class="tabs">
+                <li><a href="#" name=".tab4_1">基本配置</a></li>
+                <li><a href="#" name=".tab4_2">接口配置</a></li>
+                <li><a href="#" name=".tab4_3">安全策略</a></li>
+                <li><a href="#" name=".tab4_4">服务类型</a></li>
+                <li><a href="#" name=".tab4_5">NAT</a></li>
+                <li><a href="#" name=".tab4_6">控制台</a></li>
+            </ul>
+            <div class="content">
+                <div class="tab4_1">
+                    <form action="" id="modal-firewall-form-1">
+                        <label for="switchboard-allocation-1">元件名称</label>
+                        <input type="text" id="firewall-allocation-1"/>
+                    </form>
+                    <button id="modal-firewall-form-1-btn" class="modal-button">保存</button>
+                </div>
+                <div class="tab4_2">
+                    <button id="modal-firewall-form-2-btn" class="modal-button">新建</button>
+                    <button id="modal-firewall-form-3-btn" class="modal-button">编辑</button>
+                    <button id="modal-firewall-form-4-btn" class="modal-button">删除</button>
+                    <table id="modal-firewall-form-1-table" class="modal-table">
+                        <tr>
+                            <th  style="width: 50px;" class="modal-table-th">选择</th>
+                            <th style="width: 50px;" class="modal-table-th">ID</th>
+                            <th style="width: 30px;" class="modal-table-th">状态</th>
+                            <th style="width: 50px;" class="modal-table-th">速率</th>
+                            <th style="width: 50px;" class="modal-table-th">双工</th>
+                            <th style="width: 100px;" class="modal-table-th">连接类型</th>
+                            <th style="width: 100px;" class="modal-table-th">IP地址</th>
+                            <th style="width: 100px;" class="modal-table-th">子网掩码</th>
+                            <th style="width: 100px;" class="modal-table-th">网关</th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>1</td>
+                            <td>启用</td>
+                            <td>1000</td>
+                            <td>全双工</td>
+                            <td>none</td>
+                            <td>192.168.1.2</td>
+                            <td>255.255.255.252</td>
+                            <td>192.168.1.1</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>1</td>
+                            <td>启用</td>
+                            <td>1000</td>
+                            <td>全双工</td>
+                            <td>none</td>
+                            <td>192.168.1.2</td>
+                            <td>255.255.255.252</td>
+                            <td>192.168.1.1</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>1</td>
+                            <td>启用</td>
+                            <td>1000</td>
+                            <td>全双工</td>
+                            <td>none</td>
+                            <td>192.168.1.2</td>
+                            <td>255.255.255.252</td>
+                            <td>192.168.1.1</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>1</td>
+                            <td>启用</td>
+                            <td>1000</td>
+                            <td>全双工</td>
+                            <td>none</td>
+                            <td>192.168.1.2</td>
+                            <td>255.255.255.252</td>
+                            <td>192.168.1.1</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>1</td>
+                            <td>启用</td>
+                            <td>1000</td>
+                            <td>全双工</td>
+                            <td>none</td>
+                            <td>192.168.1.2</td>
+                            <td>255.255.255.252</td>
+                            <td>192.168.1.1</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>1</td>
+                            <td>启用</td>
+                            <td>1000</td>
+                            <td>全双工</td>
+                            <td>none</td>
+                            <td>192.168.1.2</td>
+                            <td>255.255.255.252</td>
+                            <td>192.168.1.1</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>1</td>
+                            <td>启用</td>
+                            <td>1000</td>
+                            <td>全双工</td>
+                            <td>none</td>
+                            <td>192.168.1.2</td>
+                            <td>255.255.255.252</td>
+                            <td>192.168.1.1</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="tab4_3">
+                    <button id="modal-firewall-form-5-btn" class="modal-button">新建</button>
+                    <button id="modal-firewall-form-6-btn" class="modal-button">编辑</button>
+                    <button id="modal-firewall-form-7-btn" class="modal-button">删除</button>
+                    <table id="modal-firewall-form-2-table" class="modal-table">
+                        <tr>
+                            <th  style="width: 50px;" class="modal-table-th">选择</th>
+                            <th style="width: 50px;" class="modal-table-th">策略名称</th>
+                            <th style="width: 50px;" class="modal-table-th">状态</th>
+                            <th style="width: 100px;" class="modal-table-th">流量方向</th>
+                            <th style="width: 150px;" class="modal-table-th">源地址</th>
+                            <th style="width: 100px;" class="modal-table-th">源端口范围</th>
+                            <th style="width: 150px;" class="modal-table-th">目的地址</th>
+                            <th style="width: 50px;" class="modal-table-th">服务类型</th>
+                            <th style="width: 50px;" class="modal-table-th">策略动作</th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>map1</td>
+                            <td>on</td>
+                            <td>incoming</td>
+                            <td>192.168.100.100</td>
+                            <td>65535</td>
+                            <td>172.16.100.10</td>
+                            <td>TCP</td>
+                            <td>允许</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>map1</td>
+                            <td>on</td>
+                            <td>incoming</td>
+                            <td>192.168.100.100</td>
+                            <td>65535</td>
+                            <td>172.16.100.10</td>
+                            <td>TCP</td>
+                            <td>允许</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>map1</td>
+                            <td>on</td>
+                            <td>incoming</td>
+                            <td>192.168.100.100</td>
+                            <td>65535</td>
+                            <td>172.16.100.10</td>
+                            <td>TCP</td>
+                            <td>允许</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>map1</td>
+                            <td>on</td>
+                            <td>incoming</td>
+                            <td>192.168.100.100</td>
+                            <td>65535</td>
+                            <td>172.16.100.10</td>
+                            <td>TCP</td>
+                            <td>允许</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>map1</td>
+                            <td>on</td>
+                            <td>incoming</td>
+                            <td>192.168.100.100</td>
+                            <td>65535</td>
+                            <td>172.16.100.10</td>
+                            <td>TCP</td>
+                            <td>允许</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>map1</td>
+                            <td>on</td>
+                            <td>incoming</td>
+                            <td>192.168.100.100</td>
+                            <td>65535</td>
+                            <td>172.16.100.10</td>
+                            <td>TCP</td>
+                            <td>允许</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>map1</td>
+                            <td>on</td>
+                            <td>incoming</td>
+                            <td>192.168.100.100</td>
+                            <td>65535</td>
+                            <td>172.16.100.10</td>
+                            <td>TCP</td>
+                            <td>允许</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>map1</td>
+                            <td>on</td>
+                            <td>incoming</td>
+                            <td>192.168.100.100</td>
+                            <td>65535</td>
+                            <td>172.16.100.10</td>
+                            <td>TCP</td>
+                            <td>允许</td>
+                        </tr>
+
+                    </table>
+                </div>
+                <div class="tab4_4">
+                    <button id="modal-firewall-form-8-btn" class="modal-button">新建</button>
+                    <button id="modal-firewall-form-9-btn" class="modal-button">编辑</button>
+                    <button id="modal-firewall-form-10-btn" class="modal-button">删除</button>
+                    <table id="modal-firewall-form-3-table" class="modal-table">
+                        <tr>
+                            <th  style="width: 50px;" class="modal-table-th">选择</th>
+                            <th style="width: 100px;" class="modal-table-th">序号</th>
+                            <th style="width: 100px;" class="modal-table-th">服务类型</th>
+                            <th style="width: 100px;" class="modal-table-th">协议类型</th>
+                            <th style="width: 100px;" class="modal-table-th">目的端口范围</th>
+
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>1</td>
+                            <td>FTP</td>
+                            <td>TCP</td>
+                            <td>1-100</td>
+
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>1</td>
+                            <td>FTP</td>
+                            <td>TCP</td>
+                            <td>1-100</td>
+
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>1</td>
+                            <td>FTP</td>
+                            <td>TCP</td>
+                            <td>1-100</td>
+
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>1</td>
+                            <td>FTP</td>
+                            <td>TCP</td>
+                            <td>1-100</td>
+
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>1</td>
+                            <td>FTP</td>
+                            <td>TCP</td>
+                            <td>1-100</td>
+
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>1</td>
+                            <td>FTP</td>
+                            <td>TCP</td>
+                            <td>1-100</td>
+
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>1</td>
+                            <td>FTP</td>
+                            <td>TCP</td>
+                            <td>1-100</td>
+
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>1</td>
+                            <td>FTP</td>
+                            <td>TCP</td>
+                            <td>1-100</td>
+
+
+                        </tr>
+                    </table>
+                </div>
+                <div class="tab4_5">
+                    <button id="modal-firewall-form-11-btn" class="modal-button">新建</button>
+                    <button id="modal-firewall-form-12-btn" class="modal-button">编辑</button>
+                    <button id="modal-firewall-form-13-btn" class="modal-button">删除</button>
+                    <table id="modal-firewall-form-4-table" class="modal-table">
+                        <tr>
+                            <th  style="width: 80px;" class="modal-table-th">选择</th>
+                            <th style="width: 100px;" class="modal-table-th">名称</th>
+                            <th style="width: 100px;" class="modal-table-th">类型</th>
+                            <th style="width: 150px;" class="modal-table-th">公网地址</th>
+                            <th style="width: 150px;" class="modal-table-th">私网地址</th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>Guangdong...</td>
+                            <td>静态映射</td>
+                            <td>192.168.100.102</td>
+                            <td>172.16.0.1-17</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>Guangdong...</td>
+                            <td>静态映射</td>
+                            <td>192.168.100.102</td>
+                            <td>172.16.0.1-17</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>Guangdong...</td>
+                            <td>静态映射</td>
+                            <td>192.168.100.102</td>
+                            <td>172.16.0.1-17</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>Guangdong...</td>
+                            <td>静态映射</td>
+                            <td>192.168.100.102</td>
+                            <td>172.16.0.1-17</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="tab4_6">
+                    2TAB2_6
+                </div>
+            </div>
+            <div style="border-top: 1px solid #ccc"></div>
+            <button class="modal-btn" id="modal-btn-4">关闭</button>
+        </div>
+    </div>
+</div>
+<div class="modal-all" id="modal5">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <p class="modal-title-p">SDN控制器设置</p>
+            <ul class="tabs">
+                <li><a href="#" name=".tab5_1">基本配置</a></li>
+                <li><a href="#" name=".tab5_2">属性配置</a></li>
+                <li><a href="#" name=".tab5_3">流表配置</a></li>
+                <li><a href="#" name=".tab5_4">控制台</a></li>
+
+            </ul>
+            <div class="content">
+                <div class="tab5_1">
+                    <form action="" id="modal-sdnC-form-1">
+                        <label for="sdnC-allocation-1">元件名称</label>
+                        <input type="text" id="sdnC-allocation-1"/>
+                    </form>
+                    <button id="modal-sdnC-form-1-btn" class="modal-button">保存</button>
+                </div>
+                <div class="tab5_2">
+                    <form action="" id="modal-sdnC-form-2">
+                        <label for="sdnC-2">IP地址</label>
+                        <input type="text" id="sdnC-2" value="192.168.1.1"/>
+                        <br/>
+                        <label for="sdnC-3">端口号</label>
+                        <input type="text" id="sdnC-3" value="6666"/>
+                        <br/>
+
+                    </form>
+                    <button id="modal-sdnC-form-2-btn" class="modal-button">保存</button>
+                </div>
+                <div class="tab5_3">
+                    <!--<form action="" id="modal-form-3">-->
+                    <!--<label for="server-allocation-1">元件名称</label>-->
+                    <!--<input type="text" id="server-allocation-8"/>-->
+                    <!--</form>-->
+
+                </div>
+                <div class="tab5_4">
+                    <form action="" id="modal-form-4">
+                        <label for="server-allocation-8">DNS域名</label>
+                        <input type="text" id="server-allocation-8" value="testdomain.com"/>
+                    </form>
+                    <button id="modal-form-3-btn" class="modal-button">新建</button>
+                    <button id="modal-form-4-btn" class="modal-button">编辑</button>
+                    <button id="modal-form-5-btn" class="modal-button">删除</button>
+                    <table id="modal-form-1-table" class="modal-table">
+                        <tr>
+                            <th  style="width: 50px;" class="modal-table-th">选择</th>
+                            <th style="width: 100px;" class="modal-table-th">IP</th>
+                            <th style="width: 100px;" class="modal-table-th">A记录</th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>192.168.1.0</td>
+                            <td>a.testdomain.com</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>192.168.1.0</td>
+                            <td>a.testdomain.com</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>192.168.1.0</td>
+                            <td>a.testdomain.com</td>
+                        </tr>
+                    </table>
+                </div>
+
+
+            </div>
+            <div style="border-top: 1px solid #cccccc"></div>
+            <button class="modal-btn" id="modal-btn-5">关闭</button>
+        </div>
+    </div>
+</div>
+<div class="modal-all" id="modal6">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <p class="modal-title-p">SDN控制器设置</p>
+            <ul class="tabs">
+                <li><a href="#" name=".tab6_1">基本配置</a></li>
+                <li><a href="#" name=".tab6_2">属性配置</a></li>
+
+                <li><a href="#" name=".tab6_3">控制台</a></li>
+
+            </ul>
+            <div class="content">
+                <div class="tab6_1">
+                    <form action="" id="modal-sdnS-form-1">
+                        <label for="sdnS-allocation-1">元件名称</label>
+                        <input type="text" id="sdnS-allocation-1"/>
+                    </form>
+                    <button id="modal-sdnS-form-1-btn" class="modal-button">保存</button>
+                </div>
+                <div class="tab6_2">
+                    <form action="" id="modal-sdnS-form-2">
+                        <label for="sdnS-2">OpenFlow版本</label>
+                        <input type="text" id="sdnS-2" />
+                        <br/>
+                        <label for="sdnS-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;主控制器IP</label>
+                        <input type="text" id="sdnS-3" />
+                        <br/>
+
+                        <label for="sdnS-4">&nbsp;&nbsp;&nbsp;&nbsp;主控制器端口</label>
+                        <input type="text" id="sdnS-4" />
+                        <br/>
+                        <label for="sdnS-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;备控制器IP</label>
+                        <input type="text" id="sdnS-5" />
+                        <br/>
+                        <label for="sdnS-6">&nbsp;&nbsp;&nbsp;&nbsp;备控制器端口</label>
+                        <input type="text" id="sdnS-6" />
+                    </form>
+                    <button id="modal-sdnS-form-2-btn" class="modal-button">保存</button>
+                </div>
+
+                <div class="tab6_3">
+
+                </div>
+
+
+            </div>
+            <div style="border-top: 1px solid #cccccc"></div>
+            <button class="modal-btn" id="modal-btn-6">关闭</button>
+        </div>
+    </div>
+</div>
+
+    <div id="container">
+        <!-- 左侧边栏-->
+        <div id="left-navigation">
+            <ul>
+                <li>
+                    <img src="../images/u470.png" alt=""/>
+                    <img src="../images/u468.png" alt=""/>
+                </li>
+                <a href="panel.html">
+                    <li>
+
+                    <span class="glyphicon glyphicon-home" style="font-size: 20px">
+                        <!--<img src="../images/2017-08-04_180433.png" alt=""/>-->
+                    </span>
+                        <p>仪表面板</p>
+
+                    </li>
+                </a>
+                <a href="quick-avigation.html">
+                    <li>
+                    <span class="glyphicon glyphicon-flag" style="font-size: 22px">
+                        <!--<img src="../images/2017-08-04_180453.png" alt=""/>-->
+                    </span>
+                        <p>快速向导</p>
+                    </li>
+                </a>
+                <a href="topology-manage.html" style="transform:scale(1.15);">
+                    <li >
+                    <span class="glyphicon glyphicon-calendar" style="font-size: 22px;color: #0288D1;">
+                        <!--<img src="../images/2017-08-04_180506.png" alt=""/>-->
+                    </span>
+                        <p style="color: #0288D1" class="animated bounce">拓扑管理</p>
+                    </li>
+                </a>
+                <a href="log-manage.html">
+                    <li >
+                    <span class="glyphicon glyphicon-list-alt" style="font-size: 22px">
+                        <!--<img src="../images/2017-08-04_180522.png" alt=""/>-->
+                    </span>
+                        <p>日志管理</p>
+                    </li>
+                </a>
+                <a href="system-manage.html">
+                    <li >
+                    <span class="glyphicon glyphicon-cog" style="font-size: 22px">
+                        <!--<img src="../images/2017-08-04_180543.png" alt=""/>-->
+                    </span>
+                        <p>系统管理</p>
+                    </li>
+                </a>
+                <a href="user-manage.html">
+                    <li >
+                    <span class="glyphicon glyphicon-user" style="font-size: 22px">
+                        <!--<img src="../images/2017-08-14_124435.png" alt=""/>-->
+                    </span>
+                        <p>用户管理</p>
+                    </li>
+                </a>
+                <a href="analysis.html">
+                    <li >
+                    <span class="glyphicon glyphicon-signal" style="font-size: 22px">
+                        <!--<img src="../images/2017-08-14_124453.png" alt=""/>-->
+                    </span>
+                        <p>统计分析</p>
+                    </li>
+                </a>
+                <a href="personal.html">
+                    <li >
+                    <span class="glyphicon glyphicon-envelope" style="font-size: 22px">
+                        <!--<img src="../images/2017-08-14_124507.png" alt=""/>-->
+                    </span>
+                        <p>个人中心</p>
+                    </li>
+                </a>
+            </ul>
+        </div>
+        <!-- top导航-->
+        <div id="top-navigation">
+            <ul id="top-navigation-left">
+                <li>中国电信云计算实验室</li>
+                <li class="animated rubberBand">网络模拟平台</li>
+            </ul>
+            <ul id="top-navigation-right">
+                <li class="animated tada"><img src="../images/u74.png" alt=""/></li>
+                <li>Welcome, <span id="user" class="user">Administrator</span></li>
+                <li>
+                    <span>
+                        <a href="login.html" >
+                            <img src="../images/exit.png" alt="" id="exit" title="退出系统"/>
+                        </a>
+                    </span>
+                </li>
+            </ul>
+        </div>
+        <!-- section-->
+        <div id="section">
+            <div id="section-top">
+                <ul>
+                    <li class="animated zoomIn">
+                        <a href="topology-manage.html" class="section-btn" style="text-decoration: none"><img src="../images/tui.png" alt=""/>返回列表</a>
+                    </li>
+                    <li class="word animated fadeInRight">
+                        西安电信双线SD-WAN测试拓扑
+                    </li>
+
+                </ul>
+                <!--<a href="" class="btn right" ><img src="../images/search-little.png" alt=""/>查看脚本</a>-->
+                <a href="" class="section-btn right animated zoomIn" style="text-decoration: none" id="keep-topo"><img src="../images/bao.png" alt="" >保存拓扑</a>
+            </div>
+            <div id="section-left" class="content-body-left">
+                <!--<ul id="uploadmenu">-->
+                    <!--<li>元件库</li>-->
+                    <!--<li>-->
+                        <!--<a href="">-->
+                        <!--<img src="../images/u380.svg" alt="" id="u380.svg"/>-->
+                        <!--<span class="component-library">&nbsp;客户端</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="">-->
+                        <!--<img src="../images/u384.svg" alt="" id="u384.svg"/>-->
+                        <!--<span class="component-library">&nbsp;服务器</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="">-->
+                        <!--<img src="../images/u386.svg" alt="" id="u386.svg"/>-->
+
+                        <!--<span class="component-library">L2<br/>交换机</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="">-->
+                        <!--<img src="../images/u376.svg" alt="" id="u376.svg"/>-->
+                        <!--<span class="component-library">L3<br/>交换机</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="">-->
+                        <!--<img src="../images/u382.svg" alt="" id="u382.svg"/>-->
+                        <!--<span class="component-library">&nbsp;路由器</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="">-->
+                        <!--<img src="../images/u388.svg" alt="" id="u388.svg"/>-->
+                        <!--<span class="component-library">&nbsp;防火墙</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="">-->
+                        <!--<img src="../images/u378.svg" alt=""  id="u378.svg"/>-->
+                        <!--<span class="component-library">&nbsp;&nbsp;&nbsp;&nbsp;云&nbsp;&nbsp;&nbsp;&nbsp;</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+
+            </div>
+            <textarea id="jtopo_textfield" style="display:none;width: 60px;position: absolute;" onkeydown="if(event.keyCode==13)this.blur();"></textarea>
+            <ul id="uploadmenu" >
+                <li class = "li1"><!--<a>网络设备</a>-->
+                    <ul class = "nav1 lili">
+                        <li id = "u380.svg"><a><img src="../images/u380.svg"><span class="component-library">&nbsp;客户端</span></a></li>
+                        <li id = "u384.svg"><a><img src="../images/u384.svg"><span class="component-library">&nbsp;服务器</span></a></li>
+                        <li id = "u386.svg"><a><img src="../images/u386.svg"><span class="component-library">L2交换机</span></a></li>
+                        <!-- l2-->
+                        <!--<li id = "u386.svg"><a><img src="../../images/u386.svg"><span class="component-library">L2交换机</span></a></li>-->
+                        <!--<li id = "u386.svg"><a><img src="../../images/u386.svg"><span class="component-library">L2交换机</span></a></li>-->
+                        <!-- l2-->
+                        <li id = "u376.svg"><a><img src="../images/u376.svg"><span class="component-library">L3交换机</span></a></li>
+                        <li id = "u382.svg"><a><img src="../images/u382.svg"><span class="component-library">&nbsp;路由器</span></a></li>
+                        <li id = "u388.svg"><a><img src="../images/u388.svg"><span class="component-library">&nbsp;防火墙</span></a></li>
+                        <li id = "u378.svg"><a><img src="../images/u378.svg"><span class="component-library">&nbsp;&nbsp;&nbsp;&nbsp;云&nbsp;&nbsp;&nbsp;&nbsp;</span></a></li>
+                        <li id = "u512.svg"><a><img src="../images/u512.svg"><span class="component-library">SDN控制器</span></a></li>
+                        <li id = "u1811.svg"><a><img src="../images/u1811.svg"><span class="component-library">SDN交换机</span></a></li>
+
+                    </ul>
+                </li>
+                <!--<li class = "li2"><a>区域拓扑</a>-->
+                <!--<ul class = "nav2 lili">-->
+                <!--<li><span>7</span></li>-->
+                <!--<li><span>7</span></li>-->
+                <!--<li><span>7</span></li>-->
+                <!--<li><span>7</span></li>-->
+                <!--<li><span>7</span></li>-->
+                <!--<li><span>7</span></li>-->
+                <!--<li><span   class = "nob">7</span></li>-->
+                <!--</ul>-->
+                <!--</li>-->
+                <!--<li class = "li3"><a>行政拓扑</a>-->
+                <!--<ul class = "nav3 lili">-->
+                <!--<li><span>7</span></li>-->
+                <!--<li><span>7</span></li>-->
+                <!--<li><span>7</span></li>-->
+                <!--<li><span>7</span></li>-->
+                <!--<li><span>7</span></li>-->
+                <!--<li><span>7</span></li>-->
+                <!--<li><span>class = "nob">7</span></li>-->
+                <!--</ul>-->
+                <!--</li>-->
+            </ul>
+            <!-- 开始流量  抓包分析-->
+            <div id="section-top-bar">
+                <div>
+                    <img src="../images/2017-08-25_105716.png" title="点击开启流量" id="start"/>
+                </div>
+                <div>
+                    <img src="../images/2017-08-25_105802.png" title="抓包分析"/>
+                </div>
+            </div>
+            <div class="right">
+                <div id="content">
+                    <canvas id="canvas">sorry,your browser do not support canvas label</canvas>
+                </div>
+            </div>
+            <ul id="contextmenu" style="display:none;">
+                <li><a>添加连线</a></li>
+                <li><a>添加节点</a></li>
+                <!--<li id = "level"><a>设置等级</a>-->
+                <!--<ul class = "lili1 nav4">-->
+                <!--<li id = "1"><span>壹</span></li>-->
+                <!--<li id = "2"><span>贰</span></li>-->
+                <!--<li id = "3"><span>弎</span></li>-->
+                <!--<li id = "4"><span>肆</span></li>-->
+                <!--<li id = "5"><span>伍</span></li>-->
+                <!--<li id = "6"><span class = "nob">陆</span></li>-->
+                <!--</ul>-->
+                <!--</li>-->
+                <li id = "text"><a>设置文字位置</a>
+                    <ul class = "lili1 nav5">
+                        <li id = "Top_Center"><span>上</span></li>
+                        <li id = "Bottom_Center"><span>下</span></li>
+                        <li id = "Middle_Left"><span>左</span></li>
+                        <li id = "Middle_Right"><span>右</span></li>
+                        <li id = "Middle_Center"><span class = "nob">中</span></li>
+                    </ul>
+                </li>
+                <li id = "alarm"><a>警告</a>
+                    <ul class = "lili1 nav6">
+                        <li id = "11"><span>一级告警</span></li>
+                        <li id = "22"><span>二级告警</span></li>
+                        <li id = "33"><span>三级告警</span></li>
+                        <li id = "44"><span class = "nob">取消告警</span></li>
+                    </ul>
+                </li>
+                <li><a>顺时针旋转</a></li>
+                <li><a>逆时针旋转</a></li>
+                <li><a>放大</a></li>
+                <li><a>缩小</a></li>
+                <li><a>删除该节点</a></li>
+                <li><a>取消</a></li>
+            </ul>
+            <ul id="linkmenu" style="display:none;">
+                <li><a>修改颜色(随机)</a></li>
+                <li><a>改为红色</a></li>
+                <li><a>改为普通颜色</a></li>
+                <li><a>删除连线</a></li>
+                <li><a>取消</a></li>
+            </ul>
+            <!--<div id="content-body-center" class="right content-body-center"></div>-->
+            <!--<canvas id="canvas"></canvas>-->
+        </div>
+        <!-- TEST-->
+
+    </div>
+    <!--<iframe src="topo-1.html" frameborder="0" scrolling="no" width="1300px" height="560px"></iframe>-->
+
+    <script src="../js/check-topology.js"></script>
+<script>
+    //<!-- 开启流量-->
+    var luff=true;
+    start.onclick=function(){
+        if(luff){
+            start.src = '../images/2017-08-25_105734.png';
+        }else{
+            start.src = '../images/2017-08-25_105716.png';
+        }
+
+    }
+</script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var time = null;
+            var canvas = document.getElementById('canvas');
+            canvas.height = 500;
+            canvas.width = 1000;
+
+            var scene = new JTopo.Scene();
+//            scene.background = './img/bg.jpg';
+            var stage = new JTopo.Stage(canvas);
+            showJTopoToobar(stage);
+            var currentNode = null;
+            var endNode = null;
+            var tmpx = null;
+            var tmpy = null;
+            var validation = null;
+
+            //服务器载入绘制拓扑图
+//            $.ajax({
+//                typt:"GET",
+//                url:"js/jsonstr.json",
+//                dataType:"json",
+//                success:function(data){
+//                        data.forEach(function(a){
+//                   //此处可以加入地域节点
+//                    if(a.elementType == "node"){
+//                        if(a.level <= 1) {
+//                            AddNode(a.x, a.y, a.text, a.Image, a.textPosition, a.level, a.larm);
+//                        }
+//                    }
+//                    });
+//
+//                         data.forEach(function(a){
+//                    if(a.elementType == "link"){
+//                        var nodeA = scene.findElements(function(e){return e.id == a.nodeAid;});
+//                        var nodeZ = scene.findElements(function(e){return e.id == a.nodeZid;});
+//                        if(nodeA[0] && nodeZ[0]) {
+//                            Addlink(nodeA[0], nodeZ[0], a.text, a.fontColor);
+//                        }
+//                    }
+//                    });
+//                }
+//                });
+
+            //画出拓扑图(函数)
+            function AddNode(x, y, str, img, textPosition,level,larm)
+            {
+//                console.log(x);
+                var node = new JTopo.Node(str);
+                node.serializedProperties.push('id');
+                node.serializedProperties.push('level');
+                node.setLocation(x ,y);
+                node.Image = '';
+                node.id = x*y;
+                node.level = level;
+                if(null != img) {
+                    node.setImage('../images/' + img);
+                    node.Image = img;
+                }
+                if(larm == "2W"){
+                    node.alarm = '2W';
+                }
+                node.textPosition = textPosition;
+                node.fontColor = '0,0,0';
+                node.addEventListener('mouseup',function(event){
+                    handler(event,node);//将当前事件的node赋给currentNode并显示右键菜单
+                });
+                node.addEventListener('click', function(event){
+                    endNode = node;
+                    if(null != currentNode && currentNode != endNode && validation === true){
+                        strr = "";
+                        Addlink(currentNode, endNode, strr);
+                        currentNode = null;
+                        validation = false;//验证是否在当前节点上右键点击了添加节点
+                    }
+                });
+
+                scene.add(node);
+                return node;
+            }
+            function Addlink(node1, node2, str, color,dashedPattern)//-----增加折线------
+            {
+                var link = new JTopo.Link(node1, node2, str);
+                //node2.father = node1;
+
+                link.lineWidth = 3;//线宽
+                link.dashedPattern = dashedPattern;
+                link.bundleOffset = 60;
+                link.bundleGap = 20;
+                link.textOffsetY = 3;
+                link.fontColor = color || '0, 200, 255';
+                link.strokeColor = color || '0,153,204';
+
+                link.addEventListener('mouseup',function(event){
+                    currentLink = this;
+                    handlelink(event);
+                });
+                scene.add(link);
+            }
+
+            function AddTextNode(x, y, str, scene)//加入单独的文字节点
+            {
+                var node = new JTopo.Node(str);
+                node.setLocation(x, y);
+                node.serializedProperties.push('id');
+                node.id = x+y;
+                node.fillColor = '255,255,255';
+                node.textPosition = 'Middle_Center';
+                node.fontColor = '0,0,0';
+                node.setSize(120,30);
+                node.dragable = false;
+                node.showSelected = false;
+                node.selected = false;
+                scene.add(node);
+            }
+
+            function handler(event, obj) {//绑定右键菜单
+
+                $("#linkmenu").hide();
+                if (event.button == 2) {
+                    currentNode = obj;
+                    tmpx = event.pageX + 30;
+                    tmpy = event.pageY + 30;
+                    $("#contextmenu").css({
+                        top: event.pageY,
+                        left: event.pageX
+                    }).show();
+                    $("#contextmenu a").click(function(){
+                        var text = $(this).text();
+                        if (text == '添加连线'){
+                            validation = true;//验证是否在当前节点上右键点击了添加节点
+                        }
+                    });
+                }
+                else if(event.button == 0){
+                    console.log(obj.text);
+                    console.log(obj._id);
+                    var currentNode2=obj;
+                    if (currentNode2.text.trim() == '客户端'){
+//                        clearTimeout(time);
+//                        time = setTimeout(function(){
+//                            $("#modal1").show();
+//                            console.log(time);
+//
+//                        },300);
+//                        var isClick = true;
+//                        $(currentNode2).on('touchstart', function(e){
+//                            isClick = true;
+//                        });
+//                        $(currentNode2).on('touchmove', function(e){
+//                            isClick = false;
+//                        });
+//                        $(currentNode2).on('touchend', function(e){
+//                            if (isClick == true){
+//                                console.log("触发点击事件");
+//                            }
+//                        })
+
+                    }
+                    else if(currentNode2.text.trim() == '服务器'){
+                        clearTimeout(time);
+                        time = setTimeout(function(){
+                            $("#modal1").show();
+                            console.log(time);
+
+                        },300);
+                    }
+                    else if(currentNode2.text.trim() == 'L2交换机'){
+                        clearTimeout(time);
+                        time = setTimeout(function(){
+                            $("#modal2").show();
+                            console.log(time);
+
+                        },300);
+                    }
+                    else if(currentNode2.text.trim() == 'L3交换机'){
+
+                    }
+                    else if(currentNode2.text.trim() == '路由器'){
+                        clearTimeout(time);
+                        time = setTimeout(function(){
+                            $("#modal3").show();
+                            console.log(time);
+
+                        },300);
+                    }
+                    else if(currentNode2.text.trim() == '防火墙'){
+                        clearTimeout(time);
+                        time = setTimeout(function(){
+                            $("#modal4").show();
+                            console.log(time);
+
+                        },300);
+                    }
+                    else if(currentNode2.text.trim() == '云'){
+                        $("#modal7").show();
+                    }
+                    else if(currentNode2.text.trim() == 'SDN控制器'){
+                        clearTimeout(time);
+                        time = setTimeout(function(){
+                            $("#modal5").show();
+                            console.log(time);
+
+                        },300);
+                    }
+                    else if(currentNode2.text.trim() == 'SDN交换机'){
+                        clearTimeout(time);
+                        time = setTimeout(function(){
+                            $("#modal6").show();
+                            console.log(time);
+
+                        },300);
+                    }
+
+                }
+
+            }
+
+            function handlelink(event){
+                $("#contextmenu").hide();
+                if(event.button == 2){
+                    $("#linkmenu").css({
+                        top:event.pageY,
+                        left:event.pageX
+                    }).show();
+                }console.log(1)
+            }
+
+             stage.click(function (event) {
+                if (event.button == 0) {// 右键
+                    // 关闭弹出菜单（div）
+                    $("#contextmenu").hide();
+                    $("#linkmenu").hide();
+
+                }
+            });
+
+            //右键菜单处理
+            $("#contextmenu a").click(function(){
+                var text = $(this).text();
+                if("取消" == text){
+                    $("#contextmenu").hide();
+                }if(text == '删除该节点'){
+                    scene.remove(currentNode);
+                    currentNode = null;
+                    $("#contextmenu").hide();
+                }
+                currentNode.save();
+
+                if (text == '添加连线'){
+
+                } else if(text == '添加节点'){
+                    AddNode(tmpx, tmpy, currentNode.text, currentNode.Image,currentNode.level, 'Bottom_Center');
+                }else if(text == '顺时针旋转'){
+                    currentNode.rotate += 0.5;
+                }else if(text == '逆时针旋转'){
+                    currentNode.rotate -= 0.5;
+                }else if(text == '放大'){
+                    currentNode.scaleX += 0.2;
+                    currentNode.scaleY += 0.2;
+                }else if(text == '缩小'){
+                    currentNode.scaleX -= 0.2;
+                    currentNode.scaleY -= 0.2;
+                }else if(text == '警告')
+                {
+                    if(currentNode.alarm == null) {
+                        currentNode.alarm = '2W';
+                    }else
+                    {
+
+                        currentNode.alarm = null;
+                    }
+
+                }
+                $("#contextmenu").hide();
+            });
+            $("#linkmenu a").click(function(){
+                var text = $(this).text();
+                if("取消" == text){
+                    $("#linkmenu").hide();
+                }
+                if(text == '修改颜色(随机)'){
+                    //currentLink.fillColor = JTopo.util.randomColor();
+                    currentLink.strokeColor = JTopo.util.randomColor();
+
+                }else if(text == '改为红色')
+                {
+                    currentLink.strokeColor = '255,0,0';//线路
+                    currentLink.text = "告警";
+                    currentLink.fontColor = '255,0,0';
+                }else if(text == '改为普通颜色')
+                {
+                    currentLink.strokeColor =  '0,200,255';
+
+                }else if(text == '删除连线')
+                {
+                    scene.remove(currentLink);
+                }
+                $("#linkmenu").hide();
+            });
+
+            //修改文字
+            var textfield = $("#jtopo_textfield");
+            scene.dbclick(function(event){
+                clearTimeout(time);
+                if(event.target == null) return;
+                var e = event.target;
+                textfield.css({
+                    top: event.pageY,
+                    left:event.pageX - e.width/2
+                }).val(e.text).show().focus().select();
+                console.log(textfield.val());
+                e.text = "";
+                textfield[0].JTopoNode = e;
+            });
+            $("#jtopo_textfield").blur(function(){
+                textfield[0].JTopoNode.text = textfield.hide().val();
+            });
+            stage.add(scene);
+
+            // 页面工具栏
+            function showJTopoToobar(stage){
+                var toobarDiv = $('<div class="jtopo_toolbar">').html(''
+//                    +'<input type="button" id="upLoadImage" value=" 载入设备 " />'
+                        +'<input type="radio" name="modeRadio" value="normal" checked id="r1"/>'
+                        +'<label for="r1"> 默认模式</label>'
+                        +'&nbsp;<input type="radio" name="modeRadio" value="edit" id="r4"/><label for="r4">图片编辑模式</label>'
+                        +'&nbsp;&nbsp;<input type="button" id="centerButton" value="居中显示"/>'
+                        +'<input type="button" id="zoomOutButton" value=" 放 大 " />'
+                        +'<input type="button" id="zoomInButton" value=" 缩 小 " />'
+//                    +'&nbsp;&nbsp;<input type="checkbox" id="zoomCheckbox"/><label for="zoomCheckbox">鼠标缩放</label>'
+                        +'&nbsp;&nbsp;<input type = "button" id = "saveJsonStr" value = "保 存"/>'
+                        +'&nbsp;&nbsp;<input type="button" id="exportButton" value="导出PNG">');
+
+                $('#content').prepend(toobarDiv);
+
+                // 工具栏按钮处理
+                $("input[name='modeRadio']").click(function(){
+                    stage.mode = $("input[name='modeRadio']:checked").val();
+                });
+                $('#centerButton').click(function(){
+                    stage.centerAndZoom(); //缩放并居中显示
+                });
+                $('#zoomOutButton').click(function(){//放大
+                    stage.zoomOut();
+                });
+                $('#zoomInButton').click(function(){//缩小
+                    stage.zoomIn();
+                });
+                $('#exportButton').click(function(){//保存PNG
+                    stage.saveImageInfo();
+                });
+                $('#zoomCheckbox').click(function(){
+                    if($('#zoomCheckbox').attr('checked')){
+                        stage.wheelZoom = 0.85; // 设置鼠标缩放比例
+                    }else{
+                        stage.wheelZoom = null; // 取消鼠标缩放比例
+                    }
+                });
+                $("#upLoadImage").click(function() {//载入节点
+                    $("#uploadmenu").toggle();
+                });
+                $("#uploadmenu ul").on("click", "li",function(e){
+                    var x = 10,y = 150;
+                    var str = $(this).text();
+                    var img = $(this).attr("id");
+                    var textPosition = "Bottom_Center";
+                    var level = 6;
+                    AddNode(x, y, str, img, textPosition,level);
+                });
+                $("#contextmenu .nav4").on("click", "li", function(){//设置level
+                    var lev = $(this).attr("id");
+                    currentNode.level = lev;
+                });
+                $("#contextmenu .nav5").on("click", "li", function(){//设置文字位置
+                    var tex = $(this).attr("id");
+                    currentNode.textPosition = tex;
+                });
+                $("#contextmenu .nav6").on("click", "li", function(){//设置告警等级,动画,颜色
+                    var ala = $(this).text();
+                    var curr = currentNode;
+                    var color = $(this).attr("id");
+                    curr.alarm = ala;
+                    /*var anima = setInterval(function(){
+                     if(curr.alarm == ala){
+                     curr.alarm = null;
+                     }else{
+                     curr.alarm = ala;
+                     }
+                     }, 600);*/
+                    if(color == 11){
+                        curr.alarmColor = '252, 233, 58';
+                    }else if(color == 22){
+                        curr.alarmColor = '255, 97, 0';
+                    }else if(color == 33){
+                        curr.alarmColor = '255, 0, 0';
+                    }
+                    console.log(curr.alarmColor);
+                });
+                $("#saveJsonStr").click(function(){//保存----大小，角度------非必须
+                    var a = scene;
+                    var d="[";
+                    //d+='"scene":]';
+                    for(var e=0;e< a.childs.length;e++){
+                        var f= a.childs[e];
+                        d+="{";
+                        if(f.elementType == 'node')
+                        {
+                            f.id = f.x * f.y;
+                            d += "\"elementType\":"+ '"'+f.elementType+'"';
+                            d += ",\"x\":"+ f.x;
+                            d += ",\"y\":"+ f.y;
+                            d += ",\"id\":"+ f.id;
+                            d += ",\"Image\":"+ '"'+ f.Image+ '"';
+                            d += ",\"text\":"+ '"'+ f.text+ '"';
+                            d +=",\"textPosition\":"+ '"'+ f.textPosition+ '"';
+                            d +=",\"larm\":"+ '"'+ f.alarm+ '"';
+                            d +=",\"level\":"+ f.level;
+                        }else if(f.elementType == 'link'){
+                            d += "\"elementType\":"+ '"'+ f.elementType+ '"';
+                            d += ",\"nodeAid\":"+ f.nodeA.id;
+                            d += ",\"nodeZid\":"+ f.nodeZ.id;
+                            d += ",\"text\":"+ '"'+ f.text+ '"';
+                            d +=",\"fontColor\":"+ '"'+ f.fontColor+ '"';
+                        }
+                        d+="},";
+                    }
+                    d= d.substring(0, d.length-1);
+                    d+="]";
+                    d = d.replace("\r\n", "\\r\\n");
+                    console.log(d);
+                    alert("保存成功");
+                });
+
+            }
+
+            var runPrefixMethod = function(element, method) {
+                var usablePrefixMethod;
+                ["webkit", "moz", "ms", "o", ""].forEach(function(prefix) {
+                            if (usablePrefixMethod) return;
+                            if (prefix === "") {
+                                // 无前缀，方法首字母小写
+                                method = method.slice(0,1).toLowerCase() + method.slice(1);
+                            }
+                            var typePrefixMethod = typeof element[prefix + method];
+                            if (typePrefixMethod + "" !== "undefined") {
+                                if (typePrefixMethod === "function") {
+                                    usablePrefixMethod = element[prefix + method]();
+                                } else {
+                                    usablePrefixMethod = element[prefix + method];
+                                }
+                            }
+                        }
+                );
+
+                return usablePrefixMethod;
+            };
+        });
+
+
+    </script>
+<!--<script>-->
+    <!--var as=document.querySelectorAll("#nav a");-->
+    <!--var lis=document.querySelectorAll("#nav>ul>li");-->
+    <!--var nav=document.querySelector("#nav");-->
+    <!--as[0].setAttribute('style','border-bottom:5px solid #0288D1');-->
+    <!--console.log(as[0]);-->
+    <!--nav.addEventListener("click",function(e){-->
+        <!--if(e.target && e.target.nodeName == "A"){-->
+            <!--for(var i =0;i<as.length;i++){-->
+                <!--if(i<as.length){-->
+                    <!--as[i].setAttribute('style','border-bottom:5px solid transparent');-->
+                <!--}-->
+                <!--e.target.setAttribute('style','border-bottom:5px solid #0288D1;color:#0288D1');-->
+
+            <!--}-->
+        <!--}-->
+    <!--})-->
+<!--</script>-->
+
+</body>
+</html>

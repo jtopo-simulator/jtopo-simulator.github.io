@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/jquery-1.11.3.js"></script>
+    <script src="../js/jtopo-0.4.8-min.js"></script>
+</head>
+<body>
+
+<script>
+    var data={
+        dataSource:[
+            {
+                id:1,
+                parentId:0,
+                edit:"false",
+                order: "01",
+                detail: "01",
+                detailName:"道路建设",
+                units: "中铁一局建设",
+                amount: "256874",
+                univalence: "1526",
+                price: "5218563",
+                remark:"暂无",
+                author:"李晓敏",
+                makeTime:"2017-10-1",
+                children:[{
+                    id:2,
+                    parentId:0,
+                    edit:"false",
+                    order: "02",
+                    detail: "02",
+                    detailName:"道路建设",
+                    units: "中铁一局建设",
+                    amount: "256874",
+                    univalence: "1526",
+                    price: "5218563",
+                    remark:"暂无",
+                    author:"张晓娜",
+                    makeTime:"2017-10-1"
+                }]
+            },
+            {
+                id:3,
+                parentId:0,
+                edit:"false",
+                order: "03",
+                detail: "03",
+                detailName:"桥梁建设",
+                units: "中铁一局建设",
+                amount: "256874",
+                univalence: "1526",
+                price: "5218563",
+                remark:"暂无",
+                author:"张小米",
+                makeTime:"2017-10-1",
+                children:[{
+                    id:4,
+                    parentId:0,
+                    edit:"false",
+                    order: "04",
+                    detail: "04",
+                    detailName:"桥梁建设",
+                    units: "中铁一局建设",
+                    amount: "256874",
+                    univalence: "1526",
+                    price: "5218563",
+                    remark:"暂无",
+                    author:"张小米",
+                    makeTime:"2017-10-1"
+                }]
+            },
+            {
+                id:5,
+                parentId:0,
+                edit:"false",
+                order: "05",
+                detail: "05",
+                detailName:"道路绿化",
+                units: "中铁一局建设",
+                amount: "256874",
+                univalence: "1526",
+                price: "5218563",
+                remark:"暂无",
+                author:"张晓娜",
+                makeTime:"2017-10-1",
+                children:[{
+                    id:6,
+                    parentId:0,
+                    edit:"false",
+                    order: "06",
+                    detail: "06",
+                    detailName:"道路绿化",
+                    units: "中铁一局建设",
+                    amount: "256874",
+                    univalence: "1526",
+                    price: "5218563",
+                    remark:"暂无",
+                    author:"张晓娜",
+                    makeTime:"2017-10-1"
+                }]
+            },
+            {
+                id:7,
+                parentId:0,
+                edit:"false",
+                order: "07",
+                detail: "07",
+                detailName:"道路绿化",
+                units: "中铁一局建设",
+                amount: "256874",
+                univalence: "1526",
+                price: "5218563",
+                remark:"暂无",
+                author:"张晓娜",
+                makeTime:"2017-10-1",
+                children:[{
+                    id:8,
+                    parentId:0,
+                    edit:"false",
+                    order: "08",
+                    detail: "08",
+                    detailName:"道路绿化",
+                    units: "中铁一局建设",
+                    amount: "256874",
+                    univalence: "1526",
+                    price: "5218563",
+                    remark:"暂无",
+                    author:"张晓娜",
+                    makeTime:"2017-10-1"
+                }]
+            },
+            {
+                id:9,
+                parentId:0,
+                edit:"false",
+                order: "09",
+                detail: "09",
+                detailName:"道路绿化",
+                units: "中铁一局建设",
+                amount: "256874",
+                univalence: "1526",
+                price: "5218563",
+                remark:"暂无",
+                author:"张晓娜",
+                makeTime:"2017-10-1"
+            },
+            {
+                id:10,
+                parentId:0,
+                edit:"false",
+                order: "11",
+                detail: "11",
+                detailName:"桥梁隧道",
+                units: "中铁十局建设",
+                amount: "256874",
+                univalence: "1526",
+                price: "5218563",
+                remark:"暂无",
+                author:"周杰伦",
+                makeTime:"2017-10-1",
+
+                children:[
+                    {
+                        id:11,
+                        parentId:0,
+                        edit:"false",
+                        order: "11",
+                        detail: "11",
+                        detailName:"桥梁隧道",
+                        units: "中铁十局建设",
+                        amount: "256874",
+                        univalence: "1526",
+                        price: "5218563",
+                        remark:"暂无",
+                        author:"周杰伦",
+                        makeTime:"2017-10-1"
+                    },
+                    {
+                    id:12,
+                    parentId:0,
+                    edit:"false",
+                    order: "11",
+                    detail: "11",
+                    detailName:"桥梁隧道",
+                    units: "中铁十局建设",
+                    amount: "256874",
+                    univalence: "1526",
+                    price: "5218563",
+                    remark:"暂无",
+                    author:"周杰伦",
+                    makeTime:"2017-10-1",
+                    children:[{
+                        id:13,
+                        parentId:0,
+                        edit:"false",
+                        order: "11",
+                        detail: "11",
+                        detailName:"桥梁隧道",
+                        units: "中铁十局建设",
+                        amount: "256874",
+                        univalence: "1526",
+                        price: "5218563",
+                        remark:"暂无",
+                        author:"周杰伦",
+                        makeTime:"2017-10-1"
+                    }]
+                }]
+            }
+        ]
+
+    }
+
+
+    function bianli(obj) {
+        var output = [];
+        if (typeof obj === 'object') {
+            for (var key in obj) {
+                var item = obj[key];
+                if (typeof item === 'object') {
+                    output += bianli(item);
+                } else {
+                    output += key + ':' + item + '\n';
+                }
+            }
+        } else {
+            output += obj + '\n';
+        }
+        return output;
+    }
+
+    console.log(bianli(data.dataSource));
+
+    function fenge (){
+        ss = bianli(data.dataSource).split("id");
+        console.log(ss)
+    }
+    fenge()
+//    function del (id){
+//        for(var  i  in  recursive(data.dataSource)){
+//
+//        }
+//    }
+//    del()
+</script>
+
+</body>
+</html>

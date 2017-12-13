@@ -1,0 +1,178 @@
+/*锚点结构设置*/
+body{
+    width: 1200px;
+    height: 800px;
+}
+ul,li{
+    margin: 0;
+    padding: 0;
+}
+ul li{
+    float: left;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+#container>div{
+    width: 600px;
+    height: 430px;
+    border-top: 1px solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
+}
+#div1,#div2,#div3,#div4{
+
+    position: absolute;
+    z-index: 9;
+    background: #ffffff;
+}
+#div1{
+    z-index: 10;
+}
+#container div:target{
+    position: absolute;
+    z-index: 10;
+}
+#container{
+    width: 600px;
+    height: 430px;
+
+}
+#nav{
+    width: 600px;
+    height: 38px;
+
+}
+/*box样式*/
+#box{
+    width: 495px;
+    height: 330px;
+    background: #ffffff;
+    border: 1px solid #787878;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+/*nav样式 点击事件底部边框*/
+/*#nav>ul>li{*/
+/*border-bottom: 2px solid transparent;*/
+/*}*/
+/*#nav a{*/
+/*display: inline-block;*/
+/*border: 5px solid transparent;*/
+/*}*/
+/*mask*/
+#mask{
+    width: 1200px;
+    height: 800px;;
+    background: #8D8D8D;
+    position: absolute;
+    z-index: -1;
+    /*opacity: .4;*/
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+#box{
+    z-index: 999;
+}
+/*字体样式*/
+#box>p{
+    font-family: 'Noto Sans S Chinese Bold', 'Noto Sans S Chinese';
+    font-weight: 700;
+    font-style: normal;
+    font-size: 18px;
+    color: #313E44;
+    margin-left: 20px;
+}
+#nav>ul>li>a{
+    display: inline-block;
+    width: 98px;
+    height: 35px;
+    font-family: 'Noto Sans S Chinese Bold', 'Noto Sans S Chinese';
+    font-weight: 700;
+    font-style: normal;
+    font-size: 14px;
+    color: #666666;
+    text-align: center;
+    border-bottom: 5px solid transparent;
+}
+/*form*/
+input,label{
+    margin: 0;
+    padding: 0;
+}
+#form{
+    margin-left: 10px;
+}
+#form>input{
+    display: inline-block;
+
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 382px;
+    height: 30px;
+    font-family: 'Noto Sans S Chinese Regular', 'Noto Sans S Chinese';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    text-decoration: none;
+    border: 1px solid #888888;
+    text-align: left;
+    transform: translate(-8px,0);
+}
+label{
+    font-family: 'Noto Sans S Chinese Regular', 'Noto Sans S Chinese';
+    font-weight: 400;
+    font-style: normal;
+    color: #666666;
+    text-align: right;
+    font-size: 14px;
+    margin-left: 15px;
+}
+#form hr{
+    margin-top: 60px;
+    color: #dddddd;
+    margin-left: 0;
+}
+#form #btn{
+    display: inline-block;
+    width: 120px;
+    height: 40px;
+    background: inherit;
+    background-color: rgba(0, 153, 204, 1);
+    border: none;
+    border-radius: 5px;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-family: 'Noto Sans S Chinese Regular', 'Noto Sans S Chinese';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    color: #FFFFFF;
+}
+#form #exit{
+    width: 120px;
+    height: 40px;
+    background: inherit;
+    background-color: rgba(255, 255, 255, 1);
+    box-sizing: border-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(204, 204, 204, 1);
+    border-radius: 5px;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-family: 'Noto Sans S Chinese Regular', 'Noto Sans S Chinese';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    color: #313E44;
+    cursor: pointer;
+    text-align: center;
+}

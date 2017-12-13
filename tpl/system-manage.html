@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>系统管理</title>
+    <link rel="stylesheet" href="../css/system-manage.css"/>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/honeySwitch.css"/>
+    <link rel="stylesheet" href="../css/animate.css"/>
+    <link rel="stylesheet" href="../css/honeySwitch.css"/>
+    <script src="../js/jquery-1.11.3.js"></script>
+    <script src="../js/system-manage.js"></script>
+    <script src="../js/honeySwitch.js"></script>
+</head>
+<body>
+<div id="container">
+    <!-- 左侧边栏-->
+    <div id="left-navigation">
+        <ul>
+            <li class="animated wobble">
+                <img src="../images/u470.png" alt=""/>
+                <img src="../images/u468.png" alt=""/>
+            </li>
+            <a href="panel.html">
+                <li>
+
+                    <span class="glyphicon glyphicon-home" style="font-size: 20px">
+                        <!--<img src="../images/2017-08-04_180433.png" alt=""/>-->
+                    </span>
+                    <p>仪表面板</p>
+
+                </li>
+            </a>
+            <a href="quick-avigation.html">
+                <li>
+                    <span class="glyphicon glyphicon-flag" style="font-size: 22px">
+                        <!--<img src="../images/2017-08-04_180453.png" alt=""/>-->
+                    </span>
+                    <p>快速向导</p>
+                </li>
+            </a>
+            <a href="topology-manage.html">
+                <li >
+                    <span class="glyphicon glyphicon-calendar" style="font-size: 22px">
+                        <!--<img src="../images/2017-08-04_180506.png" alt=""/>-->
+                    </span>
+                    <p>拓扑管理</p>
+                </li>
+            </a>
+            <a href="log-manage.html">
+                <li >
+                    <span class="glyphicon glyphicon-list-alt" style="font-size: 22px">
+                        <!--<img src="../images/2017-08-04_180522.png" alt=""/>-->
+                    </span>
+                    <p>日志管理</p>
+                </li>
+            </a>
+            <a href="system-manage.html" style="transform:scale(1.15);">
+                <li >
+                    <span class="glyphicon glyphicon-cog" style="font-size: 22px;color: #0288D1;">
+                        <!--<img src="../images/2017-08-04_180543.png" alt=""/>-->
+                    </span>
+                    <p style="color: #0288D1" class="animated bounce">系统管理</p>
+                </li>
+            </a>
+            <a href="user-manage.html">
+                <li >
+                    <span class="glyphicon glyphicon-user" style="font-size: 22px">
+                        <!--<img src="../images/2017-08-14_124435.png" alt=""/>-->
+                    </span>
+                    <p>用户管理</p>
+                </li>
+            </a>
+            <a href="analysis.html">
+                <li >
+                    <span class="glyphicon glyphicon-signal" style="font-size: 22px">
+                        <!--<img src="../images/2017-08-14_124453.png" alt=""/>-->
+                    </span>
+                    <p>统计分析</p>
+                </li>
+            </a>
+            <a href="personal.html">
+                <li >
+                    <span class="glyphicon glyphicon-envelope" style="font-size: 22px">
+                        <!--<img src="../images/2017-08-14_124507.png" alt=""/>-->
+                    </span>
+                    <p>个人中心</p>
+                </li>
+            </a>
+        </ul>
+    </div>
+    <!-- top导航-->
+    <div id="top-navigation">
+        <ul id="top-navigation-left">
+            <li>中国电信云计算实验室</li>
+            <li class="animated rubberBand">网络模拟平台</li>
+        </ul>
+        <ul id="top-navigation-right">
+            <li class="animated tada"><img src="../images/u74.png" alt=""/></li>
+            <li>Welcome, <span id="user" class="user">Administrator</span></li>
+            <li>
+                    <span>
+                        <a href="login.html" >
+                            <img src="../images/exit.png" alt="" id="exit" title="退出系统"/>
+                        </a>
+                    </span>
+            </li>
+        </ul>
+        <!-- 切换面板-->
+        <div id="top-navigation-tab">
+            <ul>
+                <li><a href="#login-log">系统配置</a></li>
+                <!--<li><a href="#operate-log">网元预设</a></li>-->
+                <li><a href="#system-log">网管配置</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- 主面板-->
+    <div id="boxall">
+        <div id="login-log">
+            <div id="login-log-box">
+                <div class="value deanzxone deanactions bounceInUp animated" style="visibility: visible; animation-delay: 0.1s; animation-name: bounceInUp;">
+                    <p>CPU使用率告警阈值设置</p>
+                    <ul id="cpusy">
+                        <li>
+                            <img src="../images/2017-08-17_161143.png" alt=""/><span>橙色预警触发值</span>
+                        </li>
+                        <li id="control1">
+                            <div>
+
+                                <div id="tiaotiao">
+                                    <div id="yuan"></div>
+                                    <div id="jin-du"></div>
+                                </div>
+                                <input type="text" id="input" value="10" placeholder="0" autocomplete="off"><span>%</span>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="../images/2017-08-17_161203.png" alt=""/><span>红色预警触发值</span>
+                        </li>
+                        <li id="control2">
+                            <div>
+
+                                <div id="tiaotiao2">
+                                    <div id="yuan2"></div>
+                                    <div id="jin-du2"></div>
+                                </div>
+                                <input type="text" id="input2" value="50" placeholder="0" autocomplete="off"><span>%</span>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="value deanzxone deanactions bounceInUp animated" style="visibility: visible; animation-delay: 0.2s; animation-name: bounceInUp;">
+                    <p>内存使用率告警阈值设置</p>
+                    <ul id="cpusy2">
+                        <li>
+                            <img src="../images/2017-08-17_161143.png" alt=""/><span>橙色预警触发值</span>
+                        </li>
+                        <li id="control3">
+                            <div>
+
+                                <div id="tiaotiao3">
+                                    <div id="yuan3"></div>
+                                    <div id="jin-du3"></div>
+                                </div>
+                                <input type="text" id="input3" value="" placeholder="0" autocomplete="off"><span>%</span>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="../images/2017-08-17_161203.png" alt=""/><span>红色预警触发值</span>
+                        </li>
+                        <li id="control4">
+                            <div>
+
+                                <div id="tiaotiao4">
+                                    <div id="yuan4"></div>
+                                    <div id="jin-du4"></div>
+                                </div>
+                                <input type="text" id="input4" value="" placeholder="0" autocomplete="off"><span>%</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="value deanzxone deanactions bounceInUp animated" style="visibility: visible; animation-delay: 0.3s; animation-name: bounceInUp;">
+                    <p>硬盘使用率告警阈值设置</p>
+                    <ul id="cpusy3">
+                        <li>
+                            <img src="../images/2017-08-17_161143.png" alt=""/><span>橙色预警触发值</span>
+                        </li>
+                        <li id="control5">
+                            <div>
+
+                                <div id="tiaotiao5">
+                                    <div id="yuan5"></div>
+                                    <div id="jin-du5"></div>
+                                </div>
+                                <input type="text" id="input5" value="" placeholder="0" autocomplete="off"><span>%</span>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="../images/2017-08-17_161203.png" alt=""/><span>红色预警触发值</span>
+                        </li>
+                        <li id="control6">
+                            <div>
+
+                                <div id="tiaotiao6">
+                                    <div id="yuan6"></div>
+                                    <div id="jin-du6"></div>
+                                </div>
+                                <input type="text" id="input6" value="" placeholder="0" autocomplete="off"><span>%</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <button id="btn-b" class="animated flip" style="visibility: visible; animation-delay: 0.1s; animation-name: flip;">保存</button>
+            <button id="btn-r" class="animated flip" style="visibility: visible; animation-delay: 0.2s; animation-name: flip;">重置</button>
+        </div>
+        <!--<div id="operate-log">-->
+            <!--<div id="operate-log-first">-->
+                <!--<ul>-->
+                    <!--<li>操作日志</li>-->
+                    <!--<li>用于记录所有系统登录事件</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+            <!--<div id="operate-log-second">-->
+                <!--<table class="tab">-->
+                    <!--<tr class="tab-line">-->
+                        <!--<th width="76px">编号</th>-->
+                        <!--<th width="236px">操作账号</th>-->
+                        <!--<th width="295px">操作时间</th>-->
+                        <!--<th width="483px">操作内容</th>-->
+                    <!--</tr>-->
+                    <!--<tr v-for="(value,index) in users">-->
+                        <!--<td>{{index+1}}</td>-->
+                        <!--<td>{{value.name}}</td>-->
+                        <!--<td>{{value.time}}</td>-->
+                        <!--<td>{{value.test}}</td>-->
+                    <!--</tr>-->
+                <!--</table>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div id="system-log">
+            <div>
+                <p class="system-log-title">SNMP设置</p>
+
+                <form action="">
+                    <div class="common-row" >
+                        <div class="cell-left">启用SNMP</div>
+                        <div class="cell-right"><span class="switch-off" themeColor="#1190DB" id="directory"></span></div>
+                    </div>
+                    <div id="directory_content">
+                        <div id="directory_content_mask">
+
+                        </div>
+                        <form>
+                            <div class="form-group">
+                                <label for="disabledSelect" class="labelclass">SNMP版本</label>
+                                <select id="disabledSelect" class="form-control" >
+                                    <option>v2c</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1" class="labelsecond">维护联系信息</label>
+                                <input type="text" class="form-control" id="exampleInputPassword1">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1" class="labelsecond">物理位置信息</label>
+                                <input type="text" class="form-control" id="exampleInputPassword2">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1" class="labelsecond">信任主机IP</label>
+                                <input type="text" class="form-control" id="exampleInputPassword3">
+                            </div>
+                            <div class="form-group">
+                                <label for="disabledSelect2" id="label2" class="labelsecond">NMS监控接口</label>
+                                <select id="disabledSelect2" class="form-control" >
+                                    <option>WLAN1</option>
+                                </select>
+                            </div>
+
+                        </form>
+                    </div>
+                </form>
+            </div>
+            <!--<div>-->
+                <!--<p class="system-log-title">TRAP设置</p>-->
+                <!--<form action="">-->
+                    <!--<div class="common-row" >-->
+                        <!--<div class="cell-left">启用TRAP</div>-->
+                        <!--<div class="cell-right"><span class="switch-off" themeColor="#1190DB" id="directory2"></span></div>-->
+                    <!--</div>-->
+                    <!--<div id="directory_content2">-->
+                        <!--<div id="directory_content_mask2">-->
+
+                        <!--</div>-->
+                        <!--<form>-->
+                            <!--<div class="form-group">-->
+                                <!--<label for="disabledSelect" class="labelclass">目的地址</label>-->
+                                <!--<input id="rdisabledSelect" class="form-control" >-->
+
+                                <!--</input>-->
+                            <!--</div>-->
+                            <!--<div class="form-group">-->
+                                <!--<label for="exampleInputPassword1" class="labelsecond">UDP端口号</label>-->
+                                <!--<input type="text" class="form-control" id="rexampleInputPassword1">-->
+                            <!--</div>-->
+                            <!--<div class="form-group">-->
+                                <!--<label for="exampleInputPassword1" class="labelsecond">安全名</label>-->
+                                <!--<input type="text" class="form-control" id="rexampleInputPassword2">-->
+                            <!--</div>-->
+                            <!--<div class="form-group">-->
+                                <!--<label for="exampleInputPassword1" class="labelsecond">安全模式</label>-->
+                                <!--<select type="text" class="form-control" id="rexampleInputPassword3">-->
+                                    <!--<option>v2c</option>-->
+                                <!--</select>-->
+                            <!--</div>-->
+                            <!--<div class="form-group">-->
+                                <!--<label for="disabledSelect2" id="rlabel2" class="labelsecond">安全等级</label>-->
+                                <!--<select id="rdisabledSelect2" class="form-control" >-->
+                                    <!--<option>NoAuth/NoPriv</option>-->
+                                <!--</select>-->
+                            <!--</div>-->
+
+                        <!--</form>-->
+                    <!--</div>-->
+                <!--</form>-->
+                <!--<button id="btn-b2">保存</button>-->
+                <!--<button id="btn-r2">重置</button>-->
+            <!--</div>-->
+
+        </div>
+    </div>
+</div>
+<script>
+
+    (function(){
+        var input =document.getElementById("input");
+        var yuan =document.getElementById("yuan");
+        var jindu =document.getElementById("jin-du");
+        var tiao =document.getElementById("tiaotiao");
+        var control1 =document.getElementById("control1");
+        console.log(input.value);
+        var tiaoW =tiao.offsetWidth;
+        console.log(yuan);
+        function schedule(){
+
+            var isfalse =false; //控制滑动
+
+            yuan.onmousedown =function(e){
+                isfalse =true;
+
+                var X =e.clientX; //获取当前元素相对于窗口的X左边
+
+                var offleft =this.offsetLeft; //当前元素相对于父元素的左边距
+
+                var max = tiao.offsetWidth - this.offsetWidth; //宽度的差值
+
+                document.body.onmousemove=function(e){
+                    if (isfalse === false){
+                        return;
+                    }
+                    var changeX= e.clientX; //在移动的时候获取X坐标
+
+                    var moveX =Math.min(max,Math.max(-2,offleft+(changeX-X))); //超过总宽度取最大宽
+                    input.value =Math.round(Math.max(0,moveX / max) * 100);
+                    yuan.style.marginLeft =Math.max(0, moveX) +"px";
+                    jindu.style.width =moveX +"px";
+                }
+
+            }
+            control1.onmouseup =function(){
+                isfalse =false;
+            }
+
+            var minValue =0;
+            var maxValue =100;
+
+            var lla=input.value;
+            var yyy =lla/100*tiaoW;
+            yuan.style.marginLeft =yyy +"px";
+            jindu.style.width =yyy +"px";
+            input.oninput =function(){
+
+                var theV =this.value*1;
+                if(theV >maxValue || theV <minValue){
+                    alert("输入的数值不正确");
+                    input.value ="20";
+                    jindu.style.width ="0px";
+                    yuan.style.marginLeft ="0px";
+                    return;
+                }
+                var xxx =theV/100*tiaoW;
+                yuan.style.marginLeft =xxx +"px";
+                jindu.style.width =xxx +"px";
+            }
+        }
+        schedule();
+    })();
+    (function(){
+        var input =document.getElementById("input2");
+        var yuan =document.getElementById("yuan2");
+        var jindu =document.getElementById("jin-du2");
+        var tiao =document.getElementById("tiaotiao2");
+        var control2 =document.getElementById("control2");
+
+        var tiaoW =tiao.offsetWidth;
+        console.log(tiaoW);
+        function schedule(){
+
+            var isfalse =false; //控制滑动
+
+            yuan.onmousedown =function(e){
+                isfalse =true;
+
+                var X =e.clientX; //获取当前元素相对于窗口的X左边
+
+                var offleft =this.offsetLeft; //当前元素相对于父元素的左边距
+
+                var max = tiao.offsetWidth - this.offsetWidth; //宽度的差值
+
+                document.body.onmousemove=function(e){
+                    if (isfalse == false){
+                        return;
+                    }
+                    var changeX= e.clientX; //在移动的时候获取X坐标
+
+                    var moveX =Math.min(max,Math.max(-2,offleft+(changeX-X))); //超过总宽度取最大宽
+                    input.value =Math.round(Math.max(0,moveX / max) * 100);
+                    yuan.style.marginLeft =Math.max(0, moveX) +"px";
+                    jindu.style.width =moveX +"px";
+                }
+            }
+            control2.onmouseup =function(){
+                isfalse =false;
+            }
+
+            var minValue =0;
+            var maxValue =100;
+            var lla=input.value;
+            var yyy =lla/100*tiaoW;
+            yuan.style.marginLeft =yyy +"px";
+            jindu.style.width =yyy +"px";
+            input.oninput =function(){
+                var theV =this.value*1;
+                if(theV >maxValue || theV <minValue){
+                    alert("输入的数值不正确");
+                    input.value ="";
+                    jindu.style.width ="0px";
+                    yuan.style.marginLeft ="0px";
+                    return;
+                }
+                var xxx =theV/100*tiaoW;
+                yuan.style.marginLeft =xxx +"px";
+                jindu.style.width =xxx +"px";
+            }
+        }
+        schedule();
+    })();
+    (function(){
+        var input =document.getElementById("input3");
+        var yuan =document.getElementById("yuan3");
+        var jindu =document.getElementById("jin-du3");
+        var tiao =document.getElementById("tiaotiao3");
+        var control3 =document.getElementById("control3");
+
+        var tiaoW =tiao.offsetWidth;
+        console.log(tiaoW);
+        function schedule(){
+
+            var isfalse =false; //控制滑动
+
+            yuan.onmousedown =function(e){
+                isfalse =true;
+
+                var X =e.clientX; //获取当前元素相对于窗口的X左边
+
+                var offleft =this.offsetLeft; //当前元素相对于父元素的左边距
+
+                var max = tiao.offsetWidth - this.offsetWidth; //宽度的差值
+
+                document.body.onmousemove=function(e){
+                    if (isfalse == false){
+                        return;
+                    }
+                    var changeX= e.clientX; //在移动的时候获取X坐标
+
+                    var moveX =Math.min(max,Math.max(-2,offleft+(changeX-X))); //超过总宽度取最大宽
+                    input.value =Math.round(Math.max(0,moveX / max) * 100);
+                    yuan.style.marginLeft =Math.max(0, moveX) +"px";
+                    jindu.style.width =moveX +"px";
+                }
+            }
+            control3.onmouseup =function(){
+                isfalse =false;
+            }
+
+            var minValue =0;
+            var maxValue =100;
+            var lla=input.value;
+            var yyy =lla/100*tiaoW;
+            yuan.style.marginLeft =yyy +"px";
+            jindu.style.width =yyy +"px";
+            input.oninput =function(){
+                var theV =this.value*1;
+                if(theV >maxValue || theV <minValue){
+                    alert("输入的数值不正确");
+                    input.value ="";
+                    jindu.style.width ="0px";
+                    yuan.style.marginLeft ="0px";
+                    return;
+                }
+                var xxx =theV/100*tiaoW;
+                yuan.style.marginLeft =xxx +"px";
+                jindu.style.width =xxx +"px";
+            }
+        }
+        schedule();
+    })();
+    (function(){
+        var input =document.getElementById("input4");
+        var yuan =document.getElementById("yuan4");
+        var jindu =document.getElementById("jin-du4");
+        var tiao =document.getElementById("tiaotiao4");
+        var control4 =document.getElementById("control4");
+
+        var tiaoW =tiao.offsetWidth;
+        console.log(tiaoW);
+        function schedule(){
+
+            var isfalse =false; //控制滑动
+
+            yuan.onmousedown =function(e){
+                isfalse =true;
+
+                var X =e.clientX; //获取当前元素相对于窗口的X左边
+
+                var offleft =this.offsetLeft; //当前元素相对于父元素的左边距
+
+                var max = tiao.offsetWidth - this.offsetWidth; //宽度的差值
+
+                document.body.onmousemove=function(e){
+                    if (isfalse == false){
+                        return;
+                    }
+                    var changeX= e.clientX; //在移动的时候获取X坐标
+
+                    var moveX =Math.min(max,Math.max(-2,offleft+(changeX-X))); //超过总宽度取最大宽
+                    input.value =Math.round(Math.max(0,moveX / max) * 100);
+                    yuan.style.marginLeft =Math.max(0, moveX) +"px";
+                    jindu.style.width =moveX +"px";
+                }
+            }
+            control4.onmouseup =function(){
+                isfalse =false;
+            }
+
+            var minValue =0;
+            var maxValue =100;
+            var lla=input.value;
+            var yyy =lla/100*tiaoW;
+            yuan.style.marginLeft =yyy +"px";
+            jindu.style.width =yyy +"px";
+            input.oninput =function(){
+                var theV =this.value*1;
+                if(theV >maxValue || theV <minValue){
+                    alert("输入的数值不正确");
+                    input.value ="";
+                    jindu.style.width ="0px";
+                    yuan.style.marginLeft ="0px";
+                    return;
+                }
+                var xxx =theV/100*tiaoW;
+                yuan.style.marginLeft =xxx +"px";
+                jindu.style.width =xxx +"px";
+            }
+        }
+        schedule();
+    })();
+    (function(){
+        var input =document.getElementById("input5");
+        var yuan =document.getElementById("yuan5");
+        var jindu =document.getElementById("jin-du5");
+        var tiao =document.getElementById("tiaotiao5");
+        var control5 =document.getElementById("control5");
+
+        var tiaoW =tiao.offsetWidth;
+        console.log(tiaoW);
+        function schedule(){
+
+            var isfalse =false; //控制滑动
+
+            yuan.onmousedown =function(e){
+                isfalse =true;
+
+                var X =e.clientX; //获取当前元素相对于窗口的X左边
+
+                var offleft =this.offsetLeft; //当前元素相对于父元素的左边距
+
+                var max = tiao.offsetWidth - this.offsetWidth; //宽度的差值
+
+                document.body.onmousemove=function(e){
+                    if (isfalse == false){
+                        return;
+                    }
+                    var changeX= e.clientX; //在移动的时候获取X坐标
+
+                    var moveX =Math.min(max,Math.max(-2,offleft+(changeX-X))); //超过总宽度取最大宽
+                    input.value =Math.round(Math.max(0,moveX / max) * 100);
+                    yuan.style.marginLeft =Math.max(0, moveX) +"px";
+                    jindu.style.width =moveX +"px";
+                }
+            }
+            control5.onmouseup =function(){
+                isfalse =false;
+            }
+
+            var minValue =0;
+            var maxValue =100;
+            var lla=input.value;
+            var yyy =lla/100*tiaoW;
+            yuan.style.marginLeft =yyy +"px";
+            jindu.style.width =yyy +"px";
+            input.oninput =function(){
+                var theV =this.value*1;
+                if(theV >maxValue || theV <minValue){
+                    alert("输入的数值不正确");
+                    input.value ="";
+                    jindu.style.width ="0px";
+                    yuan.style.marginLeft ="0px";
+                    return;
+                }
+                var xxx =theV/100*tiaoW;
+                yuan.style.marginLeft =xxx +"px";
+                jindu.style.width =xxx +"px";
+            }
+        }
+        schedule();
+    })();
+    (function(){
+        var input =document.getElementById("input6");
+        var yuan =document.getElementById("yuan6");
+        var jindu =document.getElementById("jin-du6");
+        var tiao =document.getElementById("tiaotiao6");
+        var control6 =document.getElementById("control6");
+
+        var tiaoW =tiao.offsetWidth;
+        console.log(tiaoW);
+        function schedule(){
+
+            var isfalse =false; //控制滑动
+
+            yuan.onmousedown =function(e){
+                isfalse =true;
+
+                var X =e.clientX; //获取当前元素相对于窗口的X左边
+
+                var offleft =this.offsetLeft; //当前元素相对于父元素的左边距
+
+                var max = tiao.offsetWidth - this.offsetWidth; //宽度的差值
+
+                document.body.onmousemove=function(e){
+                    if (isfalse == false){
+                        return;
+                    }
+                    var changeX= e.clientX; //在移动的时候获取X坐标
+
+                    var moveX =Math.min(max,Math.max(-2,offleft+(changeX-X))); //超过总宽度取最大宽
+                    input.value =Math.round(Math.max(0,moveX / max) * 100);
+                    yuan.style.marginLeft =Math.max(0, moveX) +"px";
+                    jindu.style.width =moveX +"px";
+                }
+            }
+            control6.onmouseup =function(){
+                isfalse =false;
+            }
+
+            var minValue =0;
+            var maxValue =100;
+            var lla=input.value;
+            var yyy =lla/100*tiaoW;
+            yuan.style.marginLeft =yyy +"px";
+            jindu.style.width =yyy +"px";
+            input.input =function(){
+                var theV =this.value*1;
+                if(theV >maxValue || theV <minValue){
+                    alert("输入的数值不正确");
+                    input.value ="";
+                    jindu.style.width ="0px";
+                    yuan.style.marginLeft ="0px";
+                    return;
+                }
+                var xxx =theV/100*tiaoW;
+                yuan.style.marginLeft =xxx +"px";
+                jindu.style.width =xxx +"px";
+            }
+        }
+        schedule();
+    })()
+</script>
+
+<script>
+    var as=document.querySelectorAll("#top-navigation-tab a");
+    var lis=document.querySelectorAll("#top-navigation-tab>ul>li");
+    var nav=document.querySelector("#top-navigation-tab");
+    as[0].setAttribute('style','border-bottom:3px solid #0288D1;color:#0288D1');
+    console.log(as[0]);
+    nav.addEventListener("click",function(e){
+        if(e.target && e.target.nodeName == "A"){
+            for(var i =0;i<as.length;i++){
+                if(i<as.length){
+                    as[i].setAttribute('style','border-bottom:3px solid transparent');
+                }
+                e.target.setAttribute('style','border-bottom:3px solid #0288D1;color:#0288D1');
+
+            }
+        }
+    });
+
+</script>
+<script>
+//    window.onload = function(){
+//        document.cookie = $('#input1').val();
+//        document.cookie = 'uname=tom';
+//        console.log("1")
+//    }
+$(function(){
+
+    switchEvent("#directory",function(){
+        $("#directory_content_mask").fadeOut();
+
+    },function(){
+        $("#directory_content_mask").fadeIn();
+    });
+
+    switchEvent("#directory2",function(){
+        $("#directory_content_mask2").fadeOut();
+
+    },function(){
+        $("#directory_content_mask2").fadeIn();
+    });
+});
+</script>
+</body>
+</html>
